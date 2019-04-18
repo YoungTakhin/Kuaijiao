@@ -112,16 +112,16 @@
 						<!-- <form> --->
 						</div>
 						<div class="tab-pane fade p-2" id="list-operation" role="tabpanel" aria-labelledby="list-operation-list">
-							<!-- <form> --->
+							<form name="login" method="POST" action="../../DemoController.php">
 								<div class="col-12">
 									<table>
 										<tr>
 											<td>账号：</td>
-											<td><input type="operationId" class="form-control" id="inputPassword" placeholder="请输入账号"></td>
+											<td><input name="id" type="operationId" class="form-control" id="inputPassword" placeholder="请输入账号"></td>
 										</tr>
 										<tr>
 											<td>密码：</td>
-											<td><input type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
+											<td><input name="password" type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
 										</tr>
 										<tr>
 											<td colspan="2">
@@ -138,12 +138,13 @@
 										</tr>
 									</table>
 								</div>
-							<!-- <form> --->
+							<form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div>{{$stat}}</div>
 	</body>
 
 	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->

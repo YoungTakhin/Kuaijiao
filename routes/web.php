@@ -17,9 +17,15 @@ Route::get('/', function () {
 
 Route::get('/hahaha', 'DemoController@haha');
 
+Route::get('/login', 'DemoController@login');
+
 Route::get('/login', function () {
 	return view('login');
 });
+
+
+
+Route::get('/login', 'DemoController@login');
 
 Route::get('/operation', function () {
 	return view('login');

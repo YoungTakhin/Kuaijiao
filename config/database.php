@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -13,7 +12,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+   'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -32,7 +31,18 @@ return [
     */
 
     'connections' => [
+        'mysql' => [
+        'driver'    => 'mysql',
+        'host'      => 'localhost',
+        'database'  => 'kj',
+        'username'  => 'root',
+        'password'  => '',
+        'charset'   => 'utf8',
+        'collation' => 'utf8_unicode_ci',
+        'prefix'    => '',
 
+    ],
+/*
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
@@ -84,7 +94,7 @@ return [
             'prefix' => '',
             'prefix_indexes' => true,
         ],
-
+*/
     ],
 
     /*
