@@ -54,20 +54,20 @@
 				<div class="col-auto">
 					<div class="tab-content" id="nav-tabContent">
 						<div class="tab-pane fade show active p-2" id="list-student" role="tabpanel" aria-labelledby="list-student-list">
-							<!-- <form> --->
+							<form name="slogin" method="POST" action="slogin.php">
 								<div class="col-12">
 									<table>
 										<tr>
 											<td>学号：</td>
-											<td><input type="studentId" class="form-control" id="inputPassword" placeholder="请输入学号"></td>
+											<td><input name="id" type="studentId" class="form-control" id="inputPassword" placeholder="请输入学号"></td>
 										</tr>
 										<tr>
 											<td>密码：</td>
-											<td><input type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
+											<td><input name="password" type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
 										</tr>
 										<tr>
 											<td colspan="2">
-												<button type="submit" id="student" class="btn btn-primary btn-block">登录</button>
+												<button name="slogin" type="submit" id="student" class="btn btn-primary btn-block">登录</button>
 											</td>
 										</tr>
 										<tr>
@@ -80,23 +80,23 @@
 										</tr>
 									</table>
 								</div>
-							<!-- <form> --->
+							</form>
 						</div>
 						<div class="tab-pane fade p-2" id="list-teacher" role="tabpanel" aria-labelledby="list-teacher-list">
-							<!-- <form> --->
+							<form name="tlogin" method="POST" action="tlogin.php">
 								<div class="col-12">
 									<table>
 										<tr>
 											<td>工号：</td>
-											<td><input type="teacherId" class="form-control" id="inputPassword" placeholder="请输入工号"></td>
+											<td><input name="id" type="teacherId" class="form-control" id="inputPassword" placeholder="请输入工号"></td>
 										</tr>
 										<tr>
 											<td>密码：</td>
-											<td><input type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
+											<td><input name="password" type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
 										</tr>
 										<tr>
 											<td colspan="2">
-												<button type="submit" id="teacher" class="btn btn-primary btn-block">登录</button>
+												<button name="tlogin" type="submit" id="teacher" class="btn btn-primary btn-block">登录</button>
 											</td>
 										</tr>
 										<tr>
@@ -109,10 +109,10 @@
 										</tr>
 									</table>
 								</div>
-						<!-- <form> --->
+							</form>
 						</div>
 						<div class="tab-pane fade p-2" id="list-operation" role="tabpanel" aria-labelledby="list-operation-list">
-							<form name="login" method="POST" action="../../DemoController.php">
+							<form name="ologin" method="POST" action="ologin.php">
 								<div class="col-12">
 									<table>
 										<tr>
@@ -125,7 +125,7 @@
 										</tr>
 										<tr>
 											<td colspan="2">
-												<button type="submit" id="operation" class="btn btn-primary btn-block">登录</button>
+												<button name="ologin" type="submit" id="operation" class="btn btn-primary btn-block">登录</button>
 											</td>
 										</tr>
 										<tr>
@@ -138,7 +138,7 @@
 										</tr>
 									</table>
 								</div>
-							<form>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -158,15 +158,6 @@
 	<script src="https://cdn.bootcss.com/bootstrap-select/1.13.5/js/i18n/defaults-zh_CN.js"></script>
 
 	<script type="text/javascript">
-		$("#student").click(function(){
-			window.location.href="student.html";
-		});
-		$("#teacher").click(function(){
-			window.location.href="teacher.html";
-		});
-		$("#operation").click(function(){
-			window.location.href="operation.html";
-		});
 		
 	</script>
 </html>

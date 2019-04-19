@@ -13,20 +13,26 @@ class DemoController extends Controller {
     }
 
     public function login() {
-    	$link = mysqli_connect("localhost", "root", "ydx970516", "kj");
-    	mysqli_query($link, "set names gb2312");
-    	if(isset($_POST['login'])) {
-        	$id = $_POST['id'];
-        	$password = $_POST['password'];
-    		$check_query = mysqli_query($conn, "select id from users where id like '" . $id . "' and password like '" . $password . "' limit 1");
-    		//登陆成功
-    		if($result == $check_query) {
-    			header("location:../../resources/views/operation.blade.php");
-    		}
-    	}
-    	else{
-    		$stat = mysqli_stat($link);
-    	}
+    	$stat = 111;
     	return view('login')->with('stat', $stat);
+    }
+
+    public function user() {
+    	session_start();
+    	$id = $_SESSION['id'];
+    	$username = $_SESSION['username'];
+    	$user_type = $_SESSION['$user_type'];
+        $user = array('id' => $id, 'username' => $username, 'user_type' => $user_type);
+    	if($user_type == 'o') {
+            return view('operation')->with('user', $user);
+        }
+        else if($user_type == 't') {
+            return view('teacher')->with('user', $user);
+        }
+        else {
+            return view('student')->with('user', $user);
+        }
+    	//view('operation')->with('username', $username);
+    	//return view('operation')->with('id', $id);
     }
 }

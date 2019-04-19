@@ -58,7 +58,7 @@
 			</div>
 		</nav>
 		<div class="row">
-			<div class="col-12 col-sm-2 bg-light text-dark text-center align-middle m-0 p-0"><span>1232456578	XXX</span></div>
+			<div class="col-12 col-sm-2 bg-light text-dark text-center align-middle m-0 p-0"><span>{{$user['id']}} {{$user['username']}}</span></div>
 			<ul class="col-12 col-sm-10 nav nav-tabs m-0 p-0" id="myTab" role="tablist">
 				<li class="nav-item">
 					<a class="nav-link active" id="mode1-tab" data-toggle="tab" href="#mode1" role="tab" aria-controls="mode1" aria-selected="true">课程</a>
@@ -145,8 +145,8 @@
 	<script src="https://cdn.bootcss.com/bootstrap-select/1.13.5/js/i18n/defaults-zh_CN.js"></script>
 
 	<script type="text/javascript">
-		$("#logout").click(function(){
-			window.location.href="login.html";
+		$("#logout").click(function() {
+			window.location.href="login";
 		});
 		
 	</script>

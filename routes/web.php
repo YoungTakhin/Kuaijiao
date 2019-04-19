@@ -17,24 +17,27 @@ Route::get('/', function () {
 
 Route::get('/hahaha', 'DemoController@haha');
 
-Route::get('/login', 'DemoController@login');
+//Route::get('/login', 'DemoController@login');
 
 Route::get('/login', function () {
 	return view('login');
 });
 
-
-
 Route::get('/login', 'DemoController@login');
 
-Route::get('/operation', function () {
-	return view('login');
-});
+Route::get('/operation', 'DemoController@user');
 
+Route::get('/teacher', 'DemoController@user');
+
+Route::get('/student', 'DemoController@user');
+/*
+Route::get('/operation', function () {
+	return view('operation');
+});
 Route::get('/student', function () {
 	return view('login');
 });
-
 Route::get('/teacher', function () {
 	return view('login');
 });
+*/
