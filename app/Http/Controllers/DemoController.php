@@ -21,7 +21,7 @@ class DemoController extends Controller {
     	session_start();
     	$id = $_SESSION['id'];
     	$username = $_SESSION['username'];
-    	$user_type = $_SESSION['$user_type'];
+    	$user_type = $_SESSION['user_type'];
         $user = array('id' => $id, 'username' => $username, 'user_type' => $user_type);
     	if($user_type == 'o') {
             return view('operation')->with('user', $user);

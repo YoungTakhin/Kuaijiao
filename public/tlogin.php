@@ -11,7 +11,7 @@
         //包含数据库连接文件
         $conn = conn();
         //检测用户名及密码是否正确
-        $check_query = mysqli_query($conn, "select * from users where id like '" . $id . "' and password like '" . $password . "' and user_type like 't' limit 1");
+        $check_query = mysqli_query($conn, "select * from teachers where id like '" . $id . "' and password like '" . $password . "' limit 1");
         //var_dump($check_query);
         //var_dump(mysqli_fetch_array($check_query));
         if($result = mysqli_fetch_array($check_query)) {
@@ -19,11 +19,10 @@
             //登录成功
             $id = $result['id'];
             $username = $result['username'];
-            $user_type = $result['user_type'];
             session_start();
             $_SESSION['id'] = $id;
             $_SESSION['username'] = $username;
-            $_SESSION['$user_type'] = $user_type;
+            $_SESSION['user_type'] = 't';
             echo $username . ',欢迎你！<a href="teacher">进入主页</a><br />';
             exit;
         }
