@@ -17,8 +17,6 @@ Route::get('/', function () {
 
 Route::get('/hahaha', 'DemoController@haha');
 
-//Route::get('/login', 'DemoController@login');
-
 Route::get('/login', function () {
 	return view('login');
 });
@@ -38,6 +36,13 @@ Route::get('/selectTeacher', 'DemoController@selectTeacher');
 Route::get('/insertStudent', function () {
 	return view('insertStudent');
 });
+
+//Route::get('/insertStudent', 'DemoController@selectTeacher');
+
+//Route::get('/insertStudent/insert', 'DemoController@insertStudent');
+
+
+
 
 //Route::get('/insertTeacher', 'DemoController@insertTeacher');
 

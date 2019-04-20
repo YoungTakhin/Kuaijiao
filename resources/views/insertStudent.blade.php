@@ -34,40 +34,27 @@
 	</head>
 	<body>
 		<div class="col-12 p-2">
-			<form>
+			<form name="insertStudent" method="POST" action="sinsert.php">
 				<div class="form-group row">
 					<label for="id" class="col-sm-2 col-form-label">学号</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="id" placeholder="请输入学号">
+						<input name="id" type="text" class="form-control" id="id" placeholder="请输入学号">
 					</div>
 				</div>
 				<div class="form-group row">
 					<label for="username" class="col-sm-2 col-form-label">姓名</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="username" placeholder="请输入姓名">
+						<input name="username" type="text" class="form-control" id="username" placeholder="请输入姓名">
 					</div>
 				</div>
-				<fieldset class="form-group">
-					<div class="row">
-						<legend class="col-form-label col-sm-2 pt-0">性别</legend>
-						<div class="col-sm-10">
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="male" checked>
-								<label class="form-check-label" for="male">
-									男
-								</label>
-							</div>
-							<div class="form-check">
-								<input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="female">
-								<label class="form-check-label" for="female">
-									女
-								</label>
-							</div>
-						</div>
-					</div>
-				</fieldset>
 				<div class="form-group row">
-					<label for="email" class="col-sm-2 col-form-label">Email</label>
+					<label for="username" class="col-sm-2 col-form-label">专业</label>
+					<div class="col-sm-10">
+						<input name="major" type="text" class="form-control" id="major" placeholder="请输入专业">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label name="email" for="email" class="col-sm-2 col-form-label">Email</label>
 					<div class="col-sm-10">
 						<input type="email" class="form-control" id="email" placeholder="请输入Email">
 					</div>
@@ -75,12 +62,12 @@
 				<div class="form-group row">
 					<label for="inputPassword3" class="col-sm-2 col-form-label">密码</label>
 					<div class="col-sm-10">
-						<input type="password" class="form-control" id="password" placeholder="请输入密码">
+						<input name="password" type="password" class="form-control" id="password" placeholder="请输入密码">
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-sm-10">
-						<button type="submit" class="btn btn-primary">新增</button>
+						<button name="insertStudent" type="submit" class="btn btn-primary">新增</button>
 					</div>
 				</div>
 			</form>
