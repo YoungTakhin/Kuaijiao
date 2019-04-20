@@ -70,6 +70,24 @@ class DemoController extends Controller {
         return view('selectTeacher')->with('teacher', $teacher);
     }
 
+    public function selectCourse() {
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $result = mysqli_query($conn, "select * from courses");
+        $row_num = mysqli_num_rows($result);
+        //var_dump($row_num);
+        for($i = 0; $i < $row_num; $i++) { 
+            $row[$i] = mysqli_fetch_assoc($result);
+            //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
+        }
+        //var_dump($row);
+        $course = array('row_num' => $row_num, 'row' => $row);
+        //var_dump($student);
+        mysqli_close($conn);
+        return view('selectCourse')->with('course', $course);
+    }
+
     public function insertStudent() {
         if(!isset($_POST['insertStudent'])) {
             exit('非法访问!');

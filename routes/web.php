@@ -33,6 +33,8 @@ Route::get('/selectStudent', 'DemoController@selectStudent');
 
 Route::get('/selectTeacher', 'DemoController@selectTeacher');
 
+Route::get('/selectCourse', 'DemoController@selectCourse');
+
 Route::get('/insertStudent', function () {
 	return view('insertStudent');
 });
