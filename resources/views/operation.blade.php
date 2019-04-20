@@ -84,45 +84,11 @@
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="m1o1" role="tabpanel" aria-labelledby="m1o1-tab">
-							<table class="table table-hover">
-								<thead>
-									<tr>
-										<th scope="col">#</th>
-										<th scope="col">学号</th>
-										<th scope="col">姓名</th>
-										<th scope="col">专业</th>
-										<th scope="col">修改</th>
-										<th scope="col">删除</th>
-										<th scope="col">{{$student['row_num']}}</th>
-									</tr>
-								</thead>
-								<tbody>
-									<?php
-
-									echo "<tr scope=\"row\">"
-
-									?>
-									<tr>
-										<th scope="row">1</th>
-										<td>Mark</td>
-										<td>Otto</td>
-										<td>@mdo</td>
-									</tr>
-									<tr>
-										<th scope="row">2</th>
-										<td>Jacob</td>
-										<td>Thornton</td>
-										<td>@fat</td>
-									</tr>
-									<tr>
-										<th scope="row">3</th>
-										<td colspan="2">Larry the Bird</td>
-										<td>@twitter</td>
-									</tr>
-								</tbody>
-							</table>
+							<iframe src="selectStudent" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
-						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">大功能1的小功能2</div>
+						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">
+							<iframe src="insertStudent" class="col-12" frameborder="0" height="800vh"></iframe>
+						</div>
 						<div class="tab-pane fade" id="m1o3" role="tabpanel" aria-labelledby="m1o3-tab">大功能1的小功能3</div>
 					</div>
 				</div>
@@ -135,7 +101,9 @@
 						<a class="nav-link text-center" id="m2o3-tab" data-toggle="pill" href="#m2o3" role="tab" aria-controls="m2o3" aria-selected="false">小功能3</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="m2o1" role="tabpanel" aria-labelledby="m2o1-tab">大功能2的小功能1</div>
+						<div class="tab-pane fade show active" id="m2o1" role="tabpanel" aria-labelledby="m2o1-tab">
+							<iframe src="selectTeacher" class="col-12" frameborder="0" height="800vh"></iframe>
+						</div>
 						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">大功能2的小功能2</div>
 						<div class="tab-pane fade" id="m2o3" role="tabpanel" aria-labelledby="m2o3-tab">大功能2的小功能3</div>
 					</div>

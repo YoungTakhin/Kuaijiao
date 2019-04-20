@@ -31,7 +31,15 @@ Route::get('/teacher', 'DemoController@user');
 
 Route::get('/student', 'DemoController@user');
 
+Route::get('/selectStudent', 'DemoController@selectStudent');
 
+Route::get('/selectTeacher', 'DemoController@selectTeacher');
+
+Route::get('/insertStudent', function () {
+	return view('insertStudent');
+});
+
+//Route::get('/insertTeacher', 'DemoController@insertTeacher');
 
 //Route::('/operation', 'DemoController@selectStudent');
 

@@ -34,7 +34,7 @@ class DemoController extends Controller {
         }
     }
 
-    public function selectStudent(){
+    public function selectStudent() {
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
@@ -42,12 +42,39 @@ class DemoController extends Controller {
         $row_num = mysqli_num_rows($result);
         //var_dump($row_num);
         for($i = 0; $i < $row_num; $i++) { 
-            $row[$i] = mysqli_fetch_row($result);
+            $row[$i] = mysqli_fetch_assoc($result);
+            //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
         }
         //var_dump($row);
-
         $student = array('row_num' => $row_num, 'row' => $row);
         //var_dump($student);
-        return view('operation')->with('student', $student);
+        mysqli_close($conn);
+        return view('selectStudent')->with('student', $student);
+    }
+
+    public function selectTeacher() {
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $result = mysqli_query($conn, "select * from teachers");
+        $row_num = mysqli_num_rows($result);
+        //var_dump($row_num);
+        for($i = 0; $i < $row_num; $i++) { 
+            $row[$i] = mysqli_fetch_assoc($result);
+            //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
+        }
+        //var_dump($row);
+        $teacher = array('row_num' => $row_num, 'row' => $row);
+        //var_dump($student);
+        mysqli_close($conn);
+        return view('selectTeacher')->with('teacher', $teacher);
+    }
+
+    public function insertStudent() {
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $result = mysqli_query($conn, "insert into students values ()");
+
     }
 }
