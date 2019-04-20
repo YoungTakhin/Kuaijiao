@@ -41,6 +41,7 @@
 					<th scope="col">学号</th>
 					<th scope="col">姓名</th>
 					<th scope="col">专业</th>
+					<th scope="col">Email</th>
 					<th scope="col">修改</th>
 					<th scope="col">删除</span></th>
 				</tr>
@@ -52,8 +53,9 @@
 						<td>{{ $student['row'][$i]['id'] }}</td>
 						<td>{{ $student['row'][$i]['username'] }}</td>
 						<td>{{ $student['row'][$i]['major'] }}</td>
-						<td><span class="oi oi-pencil" title="修改" aria-hidden="true"></td>
-						<td><span class="oi oi-delete" title="删除" aria-hidden="true"></td>
+						<td>{{ $student['row'][$i]['email'] }}</td>
+						<td><button type="button" class="btn btn-primary"><span class="oi oi-pencil" title="修改" aria-hidden="true"></button></td>
+						<td><button type="button" class="btn btn-danger"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
 					</tr>
 				@endfor
 			</tbody>
