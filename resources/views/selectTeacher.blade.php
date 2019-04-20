@@ -42,7 +42,7 @@
 					<th scope="col">姓名</th>
 					<th scope="col">Email</th>
 					<th scope="col">修改</th>
-					<th scope="col">删除</span></th>
+					<th scope="col">删除</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -52,8 +52,8 @@
 						<td>{{ $teacher['row'][$i]['id'] }}</td>
 						<td>{{ $teacher['row'][$i]['username'] }}</td>
 						<td>{{ $teacher['row'][$i]['email'] }}</td>
-						<td><button type="button" class="btn btn-primary"><span class="oi oi-pencil" title="修改" aria-hidden="true"></button></td>
-						<td><button type="button" class="btn btn-danger"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
+						<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-pencil" title="修改" aria-hidden="true"></button></td>
+						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
 					</tr>
 				@endfor
 			</tbody>
