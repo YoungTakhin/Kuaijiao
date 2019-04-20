@@ -30,6 +30,11 @@ Route::get('/operation', 'DemoController@user');
 Route::get('/teacher', 'DemoController@user');
 
 Route::get('/student', 'DemoController@user');
+
+
+
+//Route::('/operation', 'DemoController@selectStudent');
+
 /*
 Route::get('/operation', function () {
 	return view('operation');

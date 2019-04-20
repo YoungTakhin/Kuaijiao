@@ -32,7 +32,22 @@ class DemoController extends Controller {
         else {
             return view('student')->with('user', $user);
         }
-    	//view('operation')->with('username', $username);
-    	//return view('operation')->with('id', $id);
+    }
+
+    public function selectStudent(){
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $result = mysqli_query($conn, "select * from students");
+        $row_num = mysqli_num_rows($result);
+        //var_dump($row_num);
+        for($i = 0; $i < $row_num; $i++) { 
+            $row[$i] = mysqli_fetch_row($result);
+        }
+        //var_dump($row);
+
+        $student = array('row_num' => $row_num, 'row' => $row);
+        //var_dump($student);
+        return view('operation')->with('student', $student);
     }
 }

@@ -61,16 +61,16 @@
 			<div class="col-12 col-sm-2 bg-light text-dark text-center align-middle m-0 p-0"><span>{{$user['id']}} {{$user['username']}}</span></div>
 			<ul class="col-12 col-sm-10 nav nav-tabs m-0 p-0" id="myTab" role="tablist">
 				<li class="nav-item">
-					<a class="nav-link active" id="mode1-tab" data-toggle="tab" href="#mode1" role="tab" aria-controls="mode1" aria-selected="true">课程</a>
+					<a class="nav-link active" id="mode1-tab" data-toggle="tab" href="#mode1" role="tab" aria-controls="mode1" aria-selected="true">学生</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="mode2-tab" data-toggle="tab" href="#mode2" role="tab" aria-controls="mode2" aria-selected="false">作业</a>
+					<a class="nav-link" id="mode2-tab" data-toggle="tab" href="#mode2" role="tab" aria-controls="mode2" aria-selected="false">教师</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="mode3-tab" data-toggle="tab" href="#mode3" role="tab" aria-controls="mode3" aria-selected="false">资料</a>
+					<a class="nav-link" id="mode3-tab" data-toggle="tab" href="#mode3" role="tab" aria-controls="mode3" aria-selected="false">课程</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="mode4-tab" data-toggle="tab" href="#mode4" role="tab" aria-controls="mode4" aria-selected="false">其他</a>
+					<a class="nav-link" id="mode4-tab" data-toggle="tab" href="#mode4" role="tab" aria-controls="mode4" aria-selected="false">选课</a>
 				</li>
 			</ul>
 		</div>
@@ -78,12 +78,50 @@
 			<div class="col-12 tab-pane fade show active" id="mode1" role="tabpanel" aria-labelledby="mode1-tab">
 				<div class="row">
 					<div class="col-12 col-sm-2 nav flex-column nav-pills p-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active text-center" id="m1o1-tab" data-toggle="pill" href="#m1o1" role="tab" aria-controls="m1o1" aria-selected="true">以往课程</a>
-						<a class="nav-link text-center" id="m1o2-tab" data-toggle="pill" href="#m1o2" role="tab" aria-controls="m1o2" aria-selected="false">已选课程</a>
-						<a class="nav-link text-center" id="m1o3-tab" data-toggle="pill" href="#m1o3" role="tab" aria-controls="m1o3" aria-selected="false">小功能3</a>
+						<a class="nav-link active text-center" id="m1o1-tab" data-toggle="pill" href="#m1o1" role="tab" aria-controls="m1o1" aria-selected="true">学生查询</a>
+						<a class="nav-link text-center" id="m1o2-tab" data-toggle="pill" href="#m1o2" role="tab" aria-controls="m1o2" aria-selected="false">学生新增</a>
+						<a class="nav-link text-center" id="m1o3-tab" data-toggle="pill" href="#m1o3" role="tab" aria-controls="m1o3" aria-selected="false">学生删除</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="m1o1" role="tabpanel" aria-labelledby="m1o1-tab">大功能1的小功能1</div>
+						<div class="tab-pane fade show active" id="m1o1" role="tabpanel" aria-labelledby="m1o1-tab">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th scope="col">#</th>
+										<th scope="col">学号</th>
+										<th scope="col">姓名</th>
+										<th scope="col">专业</th>
+										<th scope="col">修改</th>
+										<th scope="col">删除</th>
+										<th scope="col">{{$student['row_num']}}</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+
+									echo "<tr scope=\"row\">"
+
+									?>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>@fat</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td colspan="2">Larry the Bird</td>
+										<td>@twitter</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
 						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">大功能1的小功能2</div>
 						<div class="tab-pane fade" id="m1o3" role="tabpanel" aria-labelledby="m1o3-tab">大功能1的小功能3</div>
 					</div>
@@ -92,8 +130,8 @@
 			<div class="col-12 tab-pane fade" id="mode2" role="tabpanel" aria-labelledby="mode2-tab">
 				<div class="row">
 					<div class="col-12 col-sm-2 nav flex-column nav-pills p-0" id="mode2-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active text-center" id="m2o1-tab" data-toggle="pill" href="#m2o1" role="tab" aria-controls="m2o1" aria-selected="true">查看作业</a>
-						<a class="nav-link text-center" id="m2o2-tab" data-toggle="pill" href="#m2o2" role="tab" aria-controls="m2o2" aria-selected="false">查看答案</a>
+						<a class="nav-link active text-center" id="m2o1-tab" data-toggle="pill" href="#m2o1" role="tab" aria-controls="m2o1" aria-selected="true">教师查询</a>
+						<a class="nav-link text-center" id="m2o2-tab" data-toggle="pill" href="#m2o2" role="tab" aria-controls="m2o2" aria-selected="false">教师新增</a>
 						<a class="nav-link text-center" id="m2o3-tab" data-toggle="pill" href="#m2o3" role="tab" aria-controls="m2o3" aria-selected="false">小功能3</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">

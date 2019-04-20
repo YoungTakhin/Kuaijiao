@@ -27,7 +27,7 @@
             exit;
         }
         else {
-            var_dump($result);
+            //var_dump($result);
             exit('登录失败！点击此处 <a href="javascript:history.back(-1);">返回</a> 重试');
         }
     }
