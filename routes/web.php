@@ -29,16 +29,19 @@ Route::get('/teacher', 'DemoController@user');
 
 Route::get('/student', 'DemoController@user');
 
-Route::get('/selectStudent', 'DemoController@selectStudent');
+//运维端
+Route::get('/operation/selectStudent', 'DemoController@selectStudent');
 
-Route::get('/selectTeacher', 'DemoController@selectTeacher');
+Route::get('/operation/selectTeacher', 'DemoController@selectTeacher');
 
-Route::get('/selectCourse', 'DemoController@selectCourse');
+Route::get('/operation/selectCourse', 'DemoController@selectCourse');
 
 Route::get('/insertStudent', function () {
-	return view('insertStudent');
+	return view('/operation/insertStudent');
 });
 
+//教师端
+Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
 //Route::get('/insertStudent', 'DemoController@selectTeacher');
 
 //Route::get('/insertStudent/insert', 'DemoController@insertStudent');

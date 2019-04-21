@@ -84,7 +84,7 @@
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="m1o1" role="tabpanel" aria-labelledby="m1o1-tab">
-							<iframe src="selectStudent" class="col-12" frameborder="0" height="800vh"></iframe>
+							<iframe src="operation/selectStudent" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
 						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">
 							<iframe src="insertStudent" class="col-12" frameborder="0" height="800vh"></iframe>
@@ -102,7 +102,7 @@
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="m2o1" role="tabpanel" aria-labelledby="m2o1-tab">
-							<iframe src="selectTeacher" class="col-12" frameborder="0" height="800vh"></iframe>
+							<iframe src="operation/selectTeacher" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
 						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">大功能2的小功能2</div>
 						<div class="tab-pane fade" id="m2o3" role="tabpanel" aria-labelledby="m2o3-tab">大功能2的小功能3</div>
@@ -118,7 +118,7 @@
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="m3o1" role="tabpanel" aria-labelledby="m3o1-tab">
-							<iframe src="selectCourse" class="col-12" frameborder="0" height="800vh"></iframe>
+							<iframe src="operation/selectCourse" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
 						<div class="tab-pane fade" id="m3o2" role="tabpanel" aria-labelledby="m3o2-tab">大功能3的小功能2</div>
 						<div class="tab-pane fade" id="m3o3" role="tabpanel" aria-labelledby="m3o3-tab">大功能3的小功能3</div>

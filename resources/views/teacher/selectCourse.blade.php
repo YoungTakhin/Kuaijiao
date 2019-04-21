@@ -40,8 +40,9 @@
 					<th scope="col">#</th>
 					<th scope="col">课程编号</th>
 					<th scope="col">课程名</th>
+					<th scope="col">教师工号</th>
 					<th scope="col">任课教师</th>
-					<th scope="col">人数</th>
+					<th scope="col">最大人数</th>
 					<th scope="col">修改</th>
 					<th scope="col">删除</th>
 				</tr>
@@ -52,7 +53,8 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $course['row'][$i]['courseid'] }}</td>
 						<td>{{ $course['row'][$i]['coursename'] }}</td>
-						<td>{{ $course['row'][$i]['teacher'] }}</td>
+						<td>{{ $course['row'][$i]['teacherid'] }}</td>
+						<td>{{ $course['row'][$i]['username'] }}</td>
 						<td>{{ $course['row'][$i]['student_num'] }}</td>
 						<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-pencil" title="修改" aria-hidden="true"></button></td>
 						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>

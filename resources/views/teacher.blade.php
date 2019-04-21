@@ -84,7 +84,7 @@
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="m1o1" role="tabpanel" aria-labelledby="m1o1-tab">
-							<iframe src="selectTeacher" class="col-12" frameborder="0" height="800vh"></iframe>
+							<iframe src="teacher/selectCourse" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
 						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">大功能1的小功能2</div>
 						<div class="tab-pane fade" id="m1o3" role="tabpanel" aria-labelledby="m1o3-tab">大功能1的小功能3</div>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DemoController extends Controller {
 	
-    //
+    //测试
     public function haha() {
     	$data = 'hello';
     	return view('demo')->with('user', $data);
@@ -17,6 +17,7 @@ class DemoController extends Controller {
     	return view('login')->with('stat', $stat);
     }
 
+    //登录
     public function user() {
     	session_start();
     	$id = $_SESSION['id'];
@@ -34,6 +35,7 @@ class DemoController extends Controller {
         }
     }
 
+    //运维端学生查询
     public function selectStudent() {
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
@@ -49,9 +51,10 @@ class DemoController extends Controller {
         $student = array('row_num' => $row_num, 'row' => $row);
         //var_dump($student);
         mysqli_close($conn);
-        return view('selectStudent')->with('student', $student);
+        return view('/operation/selectStudent')->with('student', $student);
     }
 
+    //运维端教师查询
     public function selectTeacher() {
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
@@ -67,9 +70,10 @@ class DemoController extends Controller {
         $teacher = array('row_num' => $row_num, 'row' => $row);
         //var_dump($student);
         mysqli_close($conn);
-        return view('selectTeacher')->with('teacher', $teacher);
+        return view('/operation/selectTeacher')->with('teacher', $teacher);
     }
 
+    //运维端课程查询
     public function selectCourse() {
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
@@ -83,11 +87,12 @@ class DemoController extends Controller {
         }
         //var_dump($row);
         $course = array('row_num' => $row_num, 'row' => $row);
-        //var_dump($student);
+        var_dump($course);
         mysqli_close($conn);
-        return view('selectCourse')->with('course', $course);
+        return view('/operation/selectCourse')->with('course', $course);
     }
 
+    //运维端学生新增
     public function insertStudent() {
         if(!isset($_POST['insertStudent'])) {
             exit('非法访问!');
