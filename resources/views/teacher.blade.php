@@ -78,7 +78,7 @@
 			<div class="col-12 tab-pane fade show active" id="mode1" role="tabpanel" aria-labelledby="mode1-tab">
 				<div class="row">
 					<div class="col-12 col-sm-2 nav flex-column nav-pills p-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active text-center" id="m1o1-tab" data-toggle="pill" href="#m1o1" role="tab" aria-controls="m1o1" aria-selected="true">以往课程</a>
+						<a class="nav-link active text-center" id="m1o1-tab" data-toggle="pill" href="#m1o1" role="tab" aria-controls="m1o1" aria-selected="true">在授课程</a>
 						<a class="nav-link text-center" id="m1o2-tab" data-toggle="pill" href="#m1o2" role="tab" aria-controls="m1o2" aria-selected="false">已选课程</a>
 						<a class="nav-link text-center" id="m1o3-tab" data-toggle="pill" href="#m1o3" role="tab" aria-controls="m1o3" aria-selected="false">小功能3</a>
 					</div>
@@ -99,7 +99,9 @@
 						<a class="nav-link text-center" id="m2o3-tab" data-toggle="pill" href="#m2o3" role="tab" aria-controls="m2o3" aria-selected="false">上传答案</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="m2o1" role="tabpanel" aria-labelledby="m2o1-tab">大功能2的小功能1</div>
+						<div class="tab-pane fade show active" id="m2o1" role="tabpanel" aria-labelledby="m2o1-tab">
+							<iframe src="teacher/insertHomework" class="col-12" frameborder="0" height="800vh"></iframe>
+						</div>
 						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">大功能2的小功能2</div>
 						<div class="tab-pane fade" id="m2o3" role="tabpanel" aria-labelledby="m2o3-tab">大功能2的小功能3</div>
 					</div>

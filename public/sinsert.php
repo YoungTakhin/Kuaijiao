@@ -20,20 +20,18 @@
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
         $sql = "insert into students values (" . $id . ", '" . $username . "', '" . $major . "', " . $email . ", '" . $password . "', NULL)";
-        var_dump($sql);
+        //var_dump($sql);
         $result = mysqli_query($conn, $sql);
-        var_dump($result);
+        //var_dump($result);
         //var_dump($check_query);
         //var_dump(mysqli_fetch_array($check_query));
         if($result) {
             //var_dump($result);
             //登录成功
-            echo "<script>alert('新增成功');</script>";
-            //header('Location: insertStudent');
+            echo "<script>alert('新增成功！');location.href='insertStudent';</script>";
         }
         else {
             //var_dump($result);
-            echo "<script>alert('新增失败');</script>";
-            //header('Location: insertStudent');
+            echo "<script>alert('新增失败！');location.href='insertStudent';</script>";
         }
     }

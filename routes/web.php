@@ -42,6 +42,12 @@ Route::get('/insertStudent', function () {
 
 //教师端
 Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
+
+Route::get('/teacher/insertHomework', 'TeacherController@insertHomework');
+
+
+
+
 //Route::get('/insertStudent', 'DemoController@selectTeacher');
 
 //Route::get('/insertStudent/insert', 'DemoController@insertStudent');

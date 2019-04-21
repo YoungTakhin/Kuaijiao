@@ -26,4 +26,12 @@ class TeacherController extends Controller {
         return view('/teacher/selectCourse')->with('course', $course);
     }
 
+    public function insertHomework() {
+        
+        return view('/teacher/insertHomework')->with('');
+    }
+
+    public function selectHomework() {
+
+    }
 }
