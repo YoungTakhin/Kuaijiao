@@ -40,6 +40,8 @@ Route::get('/insertStudent', function () {
 	return view('/operation/insertStudent');
 });
 
+Route::post('/operation/insertStudent', 'DemoController@insertStudent');
+
 //教师端
 Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
 
