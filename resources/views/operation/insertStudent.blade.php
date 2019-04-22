@@ -34,7 +34,7 @@
 	</head>
 	<body>
 		<div class="col-12 p-2">
-			<form name="insertStudent" method="POST" action="{{url('/operation/insertStudent')}}">
+			<form name="insertStudent" method="POST" action="{{ url('/operation/insertStudent') }}">
 				{{ csrf_field() }}
 				<div class="form-group row">
 					<label for="id" class="col-sm-2 col-form-label">学号</label>

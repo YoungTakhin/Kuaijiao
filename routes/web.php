@@ -47,6 +47,8 @@ Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
 
 Route::get('/teacher/insertHomework', 'TeacherController@insertHomework');
 
+Route::post('/teacher/upHomework', 'TeacherController@upHomework');
+
 
 
 

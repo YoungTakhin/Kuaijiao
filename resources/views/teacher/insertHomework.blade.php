@@ -34,16 +34,14 @@
 	</head>
 	<body>
 		<div class="col-12 p-2">
-			<form name="insertStudent" method="POST" action="sinsert.php">
+			<form name="insertStudent" method="POST" action="{{ url('/teacher/upHomework') }}">
+				{{ csrf_field() }}
 				<div class="form-group row">
 					<label for="id" class="col-sm-2 col-form-label">课程</label>
 					<div class="col-sm-10">
 						<select name="id" class="form-control custom-select" id="courseid">
-							@for ($i = 0; $i < $student['row_num']; $i++)
-								<option selected>Choose...</option>
-								<option value="1">One</option>
-								<option value="2">Two</option>
-								<option value="3">Three</option>
+							@for ($i = 0; $i < $course['row_num']; $i++)
+								<option selected>{{ $course['row'][0]['coursename'] }}</option>
 							@endfor
 						</select>
 					</div>
@@ -57,18 +55,21 @@
 				<div class="form-group row">
 					<label for="lastdate" class="col-sm-2 col-form-label">最晚上交时间</label>
 					<div class="col-sm-10">
-						<input name="lastdate" type="text" class="form-control" id="lastdate" placeholder="请输入专业">
+						<input name="lastdate" type="text" class="form-control" id="lastdate" placeholder="请选择最晚上交时间">
 					</div>
 				</div>
 				<div class="form-group row">
 					<label name="URL" for="email" class="col-sm-2 col-form-label">作业附件</label>
 					<div class="col-sm-10">
-						<input type="URL" class="form-control" id="URL" placeholder="请上传作业附件">
+						<div class="custom-file col-sm-12">
+							<input type="file" class="custom-file-input" id="inputGroupFile01">
+							<label class="col-sm-12 custom-file-label" for="inputGroupFile01">请上传作业附件</label>
+						</div>
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-sm-10">
-						<button name="insertStudent" type="submit" class="btn btn-primary">布置</button>
+						<button name="upHomework" type="submit" class="btn btn-primary">布置</button>
 					</div>
 				</div>
 			</form>
