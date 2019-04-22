@@ -51,14 +51,16 @@ class TeacherController extends Controller {
         $result = mysqli_query($conn, "select * from teacher_course join teachers on teachers.id = teacher_course.teacherid join courses on courses.courseid = teacher_course.courseid where teacherid like '" . $_SESSION['id'] . "'");
         $row_num = mysqli_num_rows($result);
         $rand = rand(1000000000, 9999999999);
-        $result = mysqli_query($conn, "insert into homeworks valuse (" . $rand . ", " .  . ")");
+        $url = pathinfo();
+        //$result = mysqli_query($conn, "insert into homeworks valuse (" . $rand . ", NULL, " . $url . ", NULL)");
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
             //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
         }
         $course = array('row_num' => $row_num, 'row' => $row);
         echo "<script>alert('布置成功！');</script>";
-        return view('/teacher/insertHomework')->with('course', $course);
+        return $url;
+        //return view('/teacher/insertHomework')->with('course', $course);
     }
 
     public function selectHomework() {
