@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action=""  name="formAdd" method="post">
+				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
+						<tr bgcolor="#EEF4EA">
+					        <td colspan="3" background="<%=path %>/img/wbg.gif" class='title'><span>作业管理</span></td>
+					    </tr>
+						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+						    <td width="25%" bgcolor="#FFFFFF" align="right">
+						         作业标题：
+						    </td>
+						    <td width="75%" bgcolor="#FFFFFF" align="left">
+						        <input type="text" name="title" size="20"/>
+						    </td>
+						</tr>
+						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+						    <td width="25%" bgcolor="#FFFFFF" align="right">
+						         作业附件：
+						    </td>
+						    <td width="75%" bgcolor="#FFFFFF" align="left">
+						        <input type="file" name="file" id="file" size="30" readonly="readonly"/>
+						        <input type="button" value="上传"  onclick="up()"/>
+						        <input type="hidden" name="fujianYuanshiming" id="fujianYuanshiming"/>
+						    </td>
+						</tr>
+						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+						    <td width="25%" bgcolor="#FFFFFF" align="right">
+						         上传时间：
+						    </td>
+						    <td width="75%" bgcolor="#FFFFFF" align="left">
+						    	<!--readonly：设置只读属性 -->
+						        <p id="time1" style="color: blueviolet"></p>
+						    </td>
+						</tr>
+						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+						    <td width="25%" bgcolor="#FFFFFF" align="right">
+						        &nbsp;
+						    </td>
+						    <td width="75%" bgcolor="#FFFFFF" align="left">
+						       <input type="button" value="提交" onclick="check()"/>&nbsp; 
+						       <input type="reset" value="重置"/>&nbsp;
+						    </td>
+						</tr>
+					 </table>
+			</form>
+	</body>
+	 <script>
+			function up()
+		    {
+		        for(var i = 0;i < document.getElementById(File).files.length;i++){
+		        	var file = document.getElementById(file).files[i];
+		        	console.log(file.name);//控制台显示文件名字
+		        }
+		    }
+			
+		    
+		    function check()
+		    {
+		        if(document.formAdd.file.value=="")
+		        {
+		            alert("请选择作业附件");
+		            return false;
+		        }
+		        document.formAdd.submit();
+		    }
+		    
+		    function mytime(){
+			var a = new Date();
+			var b = a.toLocaleTimeString();
+			var c = a.toLocaleDateString();
+			document.getElementById("time1").innerHTML = c +"&nbsp" +b;
+		}
+		setInterval(function(){mytime()},1000);
+	</script>
+        </script>
+</html>

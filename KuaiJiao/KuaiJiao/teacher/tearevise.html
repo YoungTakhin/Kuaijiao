@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	   
+	  <title>教师信息更改页面</title>
+	</head>
+	
+	<body>
+		<form action="<%=path %>/stuReg.action" name="form1" method="post">
+				<table width="98%" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+					<tr>
+						<th height="40" colspan="2" bgcolor="#E8E8E8" class="f12b-red" style="font-size: 19px;" >
+							教师信息更改
+						</th>
+					</tr>
+					<tr>
+						<td height="30" align="right" bgcolor="#F9F9F9" style="font-size: 11px;">
+							工号：
+						</td>
+						<td bgcolor="#FFFFFF">
+							&nbsp;
+							<input type="text" name="xuehao"/><font color="red">*</font>
+						</td>
+					</tr>
+					<tr>
+						<td height="30" align="right" bgcolor="#F9F9F9" style="font-size: 11px;">
+							姓名：
+						</td>
+						<td bgcolor="#FFFFFF">
+							&nbsp;
+							<input type="text" name="name1"/><font color="red">*</font>
+						</td>
+					</tr>
+					<tr>
+						<td height="30" align="right" bgcolor="#F9F9F9" style="font-size: 11px;">
+							性别：
+						</td>
+						<td bgcolor="#FFFFFF">
+							&nbsp;
+							<input type="radio" name="sex" value="男" checked="checked"/>男
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="sex" value="女"/>女
+						</td>
+					</tr>
+					<tr>
+						<td height="30" align="right" bgcolor="#F9F9F9" style="font-size: 11px;">
+							年龄：
+						</td>
+						<td bgcolor="#FFFFFF">
+							&nbsp;
+							<input type="text" name="age"/>
+						</td>
+					</tr>
+				
+					<tr>      
+						<td width="20%" height="30" align="right" bgcolor="#F9F9F9" style="font-size: 11px;">
+							用户名：
+						</td>
+						<td width="80%" bgcolor="#FFFFFF">
+							&nbsp;
+							<input type="text" name="loginname" id="loginname"/><font color="red">*</font>
+						</td>
+					</tr>
+					<tr>
+						<td height="30" align="right" bgcolor="#F9F9F9" style="font-size: 11px;">
+							密 码：
+						</td>
+						<td bgcolor="#FFFFFF">
+							&nbsp;
+							<input type="password" name="loginpw" size="21.5"/><font color="red">*</font>
+						</td>
+					</tr>
+					
+						<td height="30" align="right" bgcolor="#F9F9F9">
+							&nbsp;
+						</td>
+						<td bgcolor="#FFFFFF">
+							&nbsp;
+							<input type="button" value="确定" onclick="check1();"/>
+							<input type="button" value="取消" onclick="closeOpen()"/>
+						</td>
+					</tr>
+				</table>
+			</form>
+	</body>
+         <script>
+            function closeOpen()
+		    {
+		       window.returnValue=false;
+		       window.close();
+		    }
+		    
+		    function check1()
+		    {
+		        if(document.form1.xuehao.value=="")
+		        {
+		            alert("请输入工号");
+		            return false;
+		        }
+		        if(document.form1.name1.value=="")
+		        {
+		            alert("请输入姓名");
+		            return false;
+		        }
+		        if(document.form1.loginname.value=="")
+		        {
+		            alert("请输入用户名");
+		            return false;
+		        }
+		        if(document.form1.loginpw.value=="")
+		        {
+		            alert("请输入密码");
+		            return false;
+		        }
+		       
+		        document.form1.submit();
+		    }
+		    
+        </script>
+</html>
