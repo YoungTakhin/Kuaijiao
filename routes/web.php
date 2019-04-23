@@ -49,6 +49,10 @@ Route::get('/teacher/insertHomework', 'TeacherController@insertHomework');
 
 Route::post('/teacher/upHomework', 'TeacherController@upHomework');
 
+//学生端
+Route::get('/student/selectCourse', 'StudentController@selectCourse');
+
+Route::get('/student/selectHomework', 'StudentController@selectHomework');
 
 
 
