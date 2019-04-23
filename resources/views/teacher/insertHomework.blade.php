@@ -34,7 +34,7 @@
 	</head>
 	<body>
 		<div class="col-12 p-2">
-			<form name="insertStudent" method="POST" action="{{ url('/teacher/upHomework') }}" enctype="multipart/form-data">
+			<form name="insertHomework" method="POST" action="{{ url('/teacher/upHomework') }}" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group row">
 					<label for="courseid" class="col-sm-2 col-form-label">课程</label>

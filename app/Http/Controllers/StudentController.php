@@ -50,6 +50,23 @@ class StudentController extends Controller {
     }
 
     public function uphomework() {
+        
+        //待完善
 
+        session_start();
+        $id = $_SESSION['id'];
+        //$courseid = $_POST['courseid'];
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+
+        if($result) {
+            echo "<script>alert('布置成功！');</script>";
+            return view('/student/selectHomework');
+        }
+        else {
+            echo "<script>alert('布置失败！');</script>";
+            return view('/student/selectHomework');
+        }
     }
 }

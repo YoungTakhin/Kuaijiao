@@ -70,7 +70,7 @@
 											</button>
 										</div>
 										<div class="modal-body">
-											<form>
+											<form method="POST" action="{{ url('/student/upHomework') }}" enctype="multipart/form-data">
 												<div class="form-group">
 													<div class="custom-file col-sm-12">
 														<input name="URL" type="file" class="custom-file-input" id="URL">
@@ -81,7 +81,7 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-											<button type="button" class="btn btn-primary">提交</button>
+											<button name="upHomework" type="button" class="btn btn-primary">提交</button>
 										</div>
 									</div>
 								</div>
