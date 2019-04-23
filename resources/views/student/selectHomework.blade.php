@@ -58,7 +58,7 @@
 							<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button></td>
 						@endif
 						<td>
-							<button type="button" class="btn btn-primary btn-sm"><span class="oi oi-cloud-upload" title="提交" aria-hidden="true" data-toggle="modal" data-target="#exampleModal{{ $i + 1 }}"></button>
+							<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal{{ $i + 1 }}"><span class="oi oi-cloud-upload" title="提交" aria-hidden="true"></button>
 							<!-- Modal -->
 							<div class="modal fade" id="exampleModal{{ $i + 1 }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog" role="document">
