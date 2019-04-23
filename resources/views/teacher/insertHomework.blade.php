@@ -37,11 +37,11 @@
 			<form name="insertStudent" method="POST" action="{{ url('/teacher/upHomework') }}" enctype="multipart/form-data">
 				{{ csrf_field() }}
 				<div class="form-group row">
-					<label for="id" class="col-sm-2 col-form-label">课程</label>
+					<label for="courseid" class="col-sm-2 col-form-label">课程</label>
 					<div class="col-sm-10">
-						<select name="id" class="form-control custom-select" id="courseid">
+						<select name="courseid" class="form-control custom-select" id="courseid">
 							@for ($i = 0; $i < $course['row_num']; $i++)
-								<option selected>{{ $course['row'][0]['coursename'] }}</option>
+								<option selected value="{{ $course['row'][0]['courseid'] }}">{{ $course['row'][0]['coursename'] }}</option>
 							@endfor
 						</select>
 					</div>
