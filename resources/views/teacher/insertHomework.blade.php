@@ -59,11 +59,11 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<label name="URL" for="email" class="col-sm-2 col-form-label">作业附件</label>
+					<label for="URL" class="col-sm-2 col-form-label">作业附件</label>
 					<div class="col-sm-10">
 						<div class="custom-file col-sm-12">
-							<input type="file" class="custom-file-input" id="inputGroupFile01">
-							<label class="col-sm-12 custom-file-label" for="inputGroupFile01">请上传作业附件</label>
+							<input name="URL" type="file" class="custom-file-input" id="URL">
+							<label class="col-sm-12 custom-file-label" for="URL">请上传作业附件</label>
 						</div>
 					</div>
 				</div>
