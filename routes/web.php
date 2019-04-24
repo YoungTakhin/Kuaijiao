@@ -56,6 +56,8 @@ Route::get('/student/selectHomework', 'StudentController@selectHomework');
 
 Route::post('/student/upHomework', 'StudentController@upHomework');
 
+Route::get('/student/downHomework', 'StudentController@downHomework');
+
 //Route::get('/insertStudent', 'DemoController@selectTeacher');
 
 //Route::get('/insertStudent/insert', 'DemoController@insertStudent');

@@ -91,4 +91,31 @@ class StudentController extends Controller {
             }
         }
     }
+
+    public function downHomework(Request $request) {
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        var_dump($_GET);
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        //var_dump($_FILES);
+        //$url = $request->URL->store('');
+        $result = mysqli_query($conn, "select * from homeworks where homeworkid like '" . $_GET['homeworkid'] . "'");
+        var_dump($result);
+        $file = mysqli_fetch_assoc($result);
+        $url = $file['URL'];
+        var_dump($file);
+        var_dump($url);
+        //$request->header('Content-Type: application/pdf');
+        //$header = array('Content-Type' => 'multipart/form-data');
+        //$headers = array('Content-Type: application/pdf');
+        return response()->download(realpath(base_path('storage\app')) . "\\" . $url);
+        //Storage::download($url);
+    }
 }

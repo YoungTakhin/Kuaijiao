@@ -55,7 +55,13 @@
 						@if ($course['row'][$i]['URL'] == '')
 							<td><button type="button" class="btn btn-primary btn-sm" disabled><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button></td>
 						@else
-							<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button></td>
+							<td>
+								<form method="GET" action="{{ url('/student/downHomework') }}" enctype="multipart/form-data">
+									{{ csrf_field() }}
+									<input name="homeworkid" type="text" class="custom-file-input" id="homeworkid" style="display: none;" value="{{ $course['row'][$i]['homeworkid'] }}">
+									<button type="submit" class="btn btn-primary btn-sm"><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button>
+								</form>
+							</td>
 						@endif
 						<td>
 							<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal{{ $i + 1 }}"><span class="oi oi-cloud-upload" title="提交" aria-hidden="true"></button>
@@ -65,7 +71,7 @@
 									<div class="modal-content">
 										<form method="POST" action="{{ url('/student/upHomework') }}" enctype="multipart/form-data">
 										{{ csrf_field() }}
-										<input name="homeworkid" type="text" class="custom-file-input" id="homeworkid" style="display;" value="{{ $course['row'][$i]['homeworkid'] }}">
+										<input name="homeworkid" type="text" class="custom-file-input" id="homeworkid" style="display: none;" value="{{ $course['row'][$i]['homeworkid'] }}">
 										<div class="modal-header">
 											<h5 class="modal-title" id="exampleModalLabel">{{ $course['row'][$i]['coursename'] }}：{{ $course['row'][$i]['homeworkid'] }}</h5>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
