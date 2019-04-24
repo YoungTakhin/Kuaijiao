@@ -48,6 +48,10 @@ Route::get('/insertStudent', function () {
 
 Route::post('/operation/insertStudent', 'DemoController@insertStudent');
 
+Route::get('/operation/studentCourse', 'DemoController@studentCourse');
+
+Route::post('/operation/insertStudentCourse', 'DemoController@insertStudentCourse');
+
 //教师端
 Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
 
