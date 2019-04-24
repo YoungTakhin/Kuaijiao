@@ -63,6 +63,9 @@
 							<div class="modal fade" id="exampleModal{{ $i + 1 }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog" role="document">
 									<div class="modal-content">
+										<form method="POST" action="{{ url('/student/upHomework') }}" enctype="multipart/form-data">
+										{{ csrf_field() }}
+										<input name="homeworkid" type="text" class="custom-file-input" id="homeworkid" style="display;" value="{{ $course['row'][$i]['homeworkid'] }}">
 										<div class="modal-header">
 											<h5 class="modal-title" id="exampleModalLabel">{{ $course['row'][$i]['coursename'] }}：{{ $course['row'][$i]['homeworkid'] }}</h5>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -70,19 +73,18 @@
 											</button>
 										</div>
 										<div class="modal-body">
-											<form method="POST" action="{{ url('/student/upHomework') }}" enctype="multipart/form-data">
-												<div class="form-group">
-													<div class="custom-file col-sm-12">
-														<input name="URL" type="file" class="custom-file-input" id="URL">
-														<label class="col-sm-12 custom-file-label" for="URL">请选择要提交的作业</label>
-													</div>
+											<div class="form-group">
+												<div class="custom-file col-sm-12">
+													<input name="URL" type="file" class="custom-file-input" id="URL">
+													<label class="col-sm-12 custom-file-label" for="URL">请选择要提交的作业</label>
 												</div>
-											</form>
+											</div>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-											<button name="upHomework" type="button" class="btn btn-primary">提交</button>
+											<button name="upHomework" type="submit" class="btn btn-primary">提交</button>
 										</div>
+										</form>
 									</div>
 								</div>
 							</div>

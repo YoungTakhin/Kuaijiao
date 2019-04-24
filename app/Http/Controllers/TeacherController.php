@@ -28,8 +28,13 @@ class TeacherController extends Controller {
     }
 
     public function insertHomework() {
-        session_start();
-        $id = $_SESSION['id'];
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
@@ -44,8 +49,13 @@ class TeacherController extends Controller {
     }
 
     public function upHomework(Request $request) {
-        session_start();
-        $id = $_SESSION['id'];
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
         $courseid = $_POST['courseid'];
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
@@ -82,11 +92,13 @@ class TeacherController extends Controller {
         $course = array('row_num' => $row_num, 'row' => $row);
         if($result) {
             echo "<script>alert('布置成功！');</script>";
-            return view('/teacher/insertHomework')->with('course', $course);
+            return TeacherController::insertHomework();
+            //return view('/teacher/insertHomework')->with('course', $course);
         }
         else {
             echo "<script>alert('布置失败！');</script>";
-            return view('/teacher/insertHomework')->with('course', $course);
+            return TeacherController::insertHomework();
+            //return view('/teacher/insertHomework')->with('course', $course);
         }
     }
 

@@ -29,8 +29,13 @@ class StudentController extends Controller {
     }
 
     public function selectHomework() {
-        session_start();
-        $id = $_SESSION['id'];
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
@@ -49,24 +54,41 @@ class StudentController extends Controller {
         return view('/student/selectHomework')->with('course', $course);
     }
 
-    public function uphomework() {
-        
-        //待完善
-
-        session_start();
-        $id = $_SESSION['id'];
-        //$courseid = $_POST['courseid'];
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-
-        if($result) {
-            echo "<script>alert('布置成功！');</script>";
-            return view('/student/selectHomework');
+    public function uphomework(Request $request) {
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
         }
         else {
-            echo "<script>alert('布置失败！');</script>";
-            return view('/student/selectHomework');
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        if($_FILES['URL']['error'] != 0) {
+            echo "<script>alert('提交失败！');</script>";
+            return StudentController::selectHomework();
+        }
+        else {
+            $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+            mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+            mysqli_query($conn, "set names UTF8");
+            //var_dump($_FILES);
+            $url = $request->URL->store('');
+            $result = mysqli_query($conn, "select * from student_homework where homeworkid like '" . $_POST['homeworkid'] . "' and studentid like '" . $id . "'");
+            $row_num = mysqli_num_rows($result);
+            if($row_num == 1) {
+                $deleteSql = "delete from student_homework where homeworkid like '" . $_POST['homeworkid'] . "' and studentid like '" . $id . "'";
+                mysqli_query($conn, $deleteSql);
+            }
+            $sql = "insert into student_homework values ('" . $_POST['homeworkid'] . "', '" . $id . "', '" . $url . "', NULL)";
+            //var_dump($sql);
+            $result = mysqli_query($conn, $sql);
+            if($result) {
+                echo "<script>alert('提交成功！');</script>";
+                return StudentController::selectHomework();
+            }
+            else {
+                echo "<script>alert('提交失败！');</script>";
+                return StudentController::selectHomework();
+            }
         }
     }
 }
