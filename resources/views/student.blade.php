@@ -78,8 +78,8 @@
 			<div class="col-12 tab-pane fade show active" id="mode1" role="tabpanel" aria-labelledby="mode1-tab">
 				<div class="row">
 					<div class="col-12 col-sm-2 nav flex-column nav-pills p-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-						<a class="nav-link active text-center" id="m1o1-tab" data-toggle="pill" href="#m1o1" role="tab" aria-controls="m1o1" aria-selected="true">以往课程</a>
-						<a class="nav-link text-center" id="m1o2-tab" data-toggle="pill" href="#m1o2" role="tab" aria-controls="m1o2" aria-selected="false">已选课程</a>
+						<a class="nav-link active text-center" id="m1o1-tab" data-toggle="pill" href="#m1o1" role="tab" aria-controls="m1o1" aria-selected="true">已选课程</a>
+						<a class="nav-link text-center" id="m1o2-tab" data-toggle="pill" href="#m1o2" role="tab" aria-controls="m1o2" aria-selected="false">以往课程</a>
 						<a class="nav-link text-center" id="m1o3-tab" data-toggle="pill" href="#m1o3" role="tab" aria-controls="m1o3" aria-selected="false">小功能3</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
