@@ -15,6 +15,7 @@ class TeacherController extends Controller {
         mysqli_query($conn, "set names UTF8");
         $result = mysqli_query($conn, "select * from teacher_course join teachers on teachers.id = teacher_course.teacherid join courses on courses.courseid = teacher_course.courseid where teacherid like '" . $_SESSION['id'] . "'");
         $row_num = mysqli_num_rows($result);
+        $row[0] = NULL;
         //var_dump($row_num);
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
@@ -117,6 +118,7 @@ class TeacherController extends Controller {
         //var_dump($sql);
         $result = mysqli_query($conn, $sql);
         $row_num = mysqli_num_rows($result);
+        $row[0] = NULL;
         //var_dump($row_num);
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
