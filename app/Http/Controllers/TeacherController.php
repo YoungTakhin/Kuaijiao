@@ -129,4 +129,33 @@ class TeacherController extends Controller {
         //var_dump($homework);
         return view('/teacher/selectHomework')->with('homework', $homework);
     }
+
+    public function downHomework() {
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        //var_dump($_FILES);
+        //$url = $request->URL->store('');
+        $result = mysqli_query($conn, "select * from student_homework where homeworkid like '" . $_GET['homeworkid'] . "'");
+        //var_dump($result);
+        $file = mysqli_fetch_assoc($result);
+        $url = $file['URL'];
+        //var_dump($file);
+        //var_dump($url);
+        //$request->header('Content-Type: application/pdf');
+        //$header = array('Content-Type' => 'multipart/form-data');
+        //$headers = array('Content-Type'=>'application/octet-stream');
+        //response()->header('Content-Type', 'text/plain');
+        // echo realpath(base_path('storage\app')) . "\\" . $url;
+        // exit();
+        $path = realpath(base_path('storage\app')) . "\\" . $url;
+        return response()->download($path);
+    }
 }

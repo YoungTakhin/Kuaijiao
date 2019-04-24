@@ -95,7 +95,7 @@
 				<div class="row">
 					<div class="col-12 col-sm-2 nav flex-column nav-pills p-0" id="mode2-tab" role="tablist" aria-orientation="vertical">
 						<a class="nav-link active text-center" id="m2o1-tab" data-toggle="pill" href="#m2o1" role="tab" aria-controls="m2o1" aria-selected="true">布置作业</a>
-						<a class="nav-link text-center" id="m2o2-tab" data-toggle="pill" href="#m2o2" role="tab" aria-controls="m2o2" aria-selected="false">查看作业</a>
+						<a class="nav-link text-center" id="m2o2-tab" data-toggle="pill" href="#m2o2" role="tab" aria-controls="m2o2" aria-selected="false">学生作业</a>
 						<a class="nav-link text-center" id="m2o3-tab" data-toggle="pill" href="#m2o3" role="tab" aria-controls="m2o3" aria-selected="false">上传答案</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">

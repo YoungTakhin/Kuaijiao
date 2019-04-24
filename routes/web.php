@@ -57,6 +57,8 @@ Route::post('/teacher/upHomework', 'TeacherController@upHomework');
 
 Route::get('/teacher/selectHomework', 'TeacherController@selectHomework');
 
+Route::get('/teacher/downHomework', 'TeacherController@downHomework');
+
 //学生端
 Route::get('/student/selectCourse', 'StudentController@selectCourse');
 

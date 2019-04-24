@@ -54,7 +54,13 @@
 						<td>{{ $homework['row'][$i]['homeworkid'] }}</td>
 						<td>{{ $homework['row'][$i]['studentid'] }}</td>
 						<td>{{ $homework['row'][$i]['username'] }}</td>
-						<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button></td>
+						<td>
+							<form method="GET" action="{{ url('/teacher/downHomework') }}" enctype="multipart/form-data">
+								{{ csrf_field() }}
+								<input name="homeworkid" type="text" class="custom-file-input" id="homeworkid" style="display: none;" value="{{ $homework['row'][$i]['homeworkid'] }}">
+								<button type="submit" class="btn btn-primary btn-sm"><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button>
+							</form>
+						</td>
 						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
 					</tr>
 				@endfor
