@@ -39,7 +39,7 @@
 				<div class="form-group row">
 					<label for="courseid" class="col-sm-2 col-form-label">学生</label>
 					<div class="col-sm-10">
-						<select name="id" class="form-control custom-select" id="id">
+						<select name="id" class="selectpicker form-control" id="id" data-live-search="true" data-max-options="1">
 							@for ($i = 0; $i < $studentCourse[0]['row_num2']; $i++)
 								<option value="{{ $studentCourse[0]['row2'][$i]['id'] }}">{{ $studentCourse[0]['row2'][$i]['id'] }} : {{ $studentCourse[0]['row2'][$i]['username'] }}</option>
 							@endfor
@@ -49,7 +49,7 @@
 				<div class="form-group row">
 					<label for="courseid" class="col-sm-2 col-form-label">课程</label>
 					<div class="col-sm-10">
-						<select name="courseid" class="form-control custom-select" id="courseid">
+						<select name="courseid" class="selectpicker form-control" id="courseid" data-live-search="true" data-max-options="1">
 							@for ($i = 0; $i < $studentCourse[1]['row_num1']; $i++)
 								<option value="{{ $studentCourse[1]['row1'][$i]['courseid'] }}">{{ $studentCourse[1]['row1'][$i]['courseid'] }} : {{ $studentCourse[1]['row1'][$i]['coursename'] }}</option>
 							@endfor

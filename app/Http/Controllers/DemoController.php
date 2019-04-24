@@ -182,7 +182,6 @@ class DemoController extends Controller {
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
         $sql = "insert into student_course values ('" . $id . "', '" . $courseid . "')";
-        var_dump($sql);
         $result = mysqli_query($conn, $sql);
         if($result) {
             //var_dump($result);
