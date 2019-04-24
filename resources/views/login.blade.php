@@ -59,11 +59,11 @@
 									<table>
 										<tr>
 											<td>学号：</td>
-											<td><input name="id" type="studentId" class="form-control" id="inputPassword" placeholder="请输入学号"></td>
+											<td><input name="id" type="studentId" class="form-control" placeholder="请输入学号"></td>
 										</tr>
 										<tr>
 											<td>密码：</td>
-											<td><input name="password" type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
+											<td><input name="password" type="password" class="form-control" placeholder="请输入密码"></td>
 										</tr>
 										<tr>
 											<td colspan="2">
@@ -88,11 +88,11 @@
 									<table>
 										<tr>
 											<td>工号：</td>
-											<td><input name="id" type="teacherId" class="form-control" id="inputPassword" placeholder="请输入工号"></td>
+											<td><input name="id" type="teacherId" class="form-control" placeholder="请输入工号"></td>
 										</tr>
 										<tr>
 											<td>密码：</td>
-											<td><input name="password" type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
+											<td><input name="password" type="password" class="form-control" placeholder="请输入密码"></td>
 										</tr>
 										<tr>
 											<td colspan="2">
@@ -117,11 +117,11 @@
 									<table>
 										<tr>
 											<td>账号：</td>
-											<td><input name="id" type="operationId" class="form-control" id="inputPassword" placeholder="请输入账号"></td>
+											<td><input name="id" type="operationId" class="form-control" placeholder="请输入账号"></td>
 										</tr>
 										<tr>
 											<td>密码：</td>
-											<td><input name="password" type="password" class="form-control" id="inputPassword" placeholder="请输入密码"></td>
+											<td><input name="password" type="password" class="form-control" placeholder="请输入密码"></td>
 										</tr>
 										<tr>
 											<td colspan="2">

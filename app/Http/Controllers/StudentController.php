@@ -100,23 +100,29 @@ class StudentController extends Controller {
             session_start();
             $id = $_SESSION['id'];
         }
-        var_dump($_GET);
+        //var_dump($_GET);
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
         //var_dump($_FILES);
         //$url = $request->URL->store('');
         $result = mysqli_query($conn, "select * from homeworks where homeworkid like '" . $_GET['homeworkid'] . "'");
-        var_dump($result);
+        //var_dump($result);
         $file = mysqli_fetch_assoc($result);
         $url = $file['URL'];
-        var_dump($file);
-        var_dump($url);
+        //var_dump($file);
+        //var_dump($url);
         //$request->header('Content-Type: application/pdf');
         //$header = array('Content-Type' => 'multipart/form-data');
-        //$headers = array('Content-Type: application/pdf');
+        //$headers = array('Content-Type'=>'application/octet-stream');
         //response()->header('Content-Type', 'text/plain');
-        return response()->download(realpath(base_path('storage\app')) . "\\" . $url);
+        // echo realpath(base_path('storage\app')) . "\\" . $url;
+        // exit();
+        $path = realpath(base_path('storage\app')) . "\\" . $url;
+        return response()->download($path);
+
         //Storage::download($url);
+        //phpinfo();
     }
 }
+

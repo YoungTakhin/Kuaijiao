@@ -86,8 +86,8 @@
 						<div class="tab-pane fade show active" id="m1o1" role="tabpanel" aria-labelledby="m1o1-tab">
 							<iframe src="teacher/selectCourse" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
-						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">大功能1的小功能2</div>
-						<div class="tab-pane fade" id="m1o3" role="tabpanel" aria-labelledby="m1o3-tab">大功能1的小功能3</div>
+						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">开发中......</div>
+						<div class="tab-pane fade" id="m1o3" role="tabpanel" aria-labelledby="m1o3-tab">开发中......</div>
 					</div>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">
 							<iframe src="teacher/selectHomework" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
-						<div class="tab-pane fade" id="m2o3" role="tabpanel" aria-labelledby="m2o3-tab">大功能2的小功能3</div>
+						<div class="tab-pane fade" id="m2o3" role="tabpanel" aria-labelledby="m2o3-tab">开发中......</div>
 					</div>
 				</div>
 			</div>
@@ -117,9 +117,9 @@
 						<a class="nav-link text-center" id="m3o3-tab" data-toggle="pill" href="#m3o3" role="tab" aria-controls="m3o3" aria-selected="false">相关网课</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="m3o1" role="tabpanel" aria-labelledby="m3o1-tab">大功能3的小功能1</div>
-						<div class="tab-pane fade" id="m3o2" role="tabpanel" aria-labelledby="m3o2-tab">大功能3的小功能2</div>
-						<div class="tab-pane fade" id="m3o3" role="tabpanel" aria-labelledby="m3o3-tab">大功能3的小功能3</div>
+						<div class="tab-pane fade show active" id="m3o1" role="tabpanel" aria-labelledby="m3o1-tab">开发中......</div>
+						<div class="tab-pane fade" id="m3o2" role="tabpanel" aria-labelledby="m3o2-tab">开发中......</div>
+						<div class="tab-pane fade" id="m3o3" role="tabpanel" aria-labelledby="m3o3-tab">开发中......</div>
 					</div>
 				</div>
 			</div>
@@ -131,9 +131,9 @@
 						<a class="nav-link text-center" id="m4o3-tab" data-toggle="pill" href="#m4o3" role="tab" aria-controls="m4o3" aria-selected="false">小功能3</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="m4o1" role="tabpanel" aria-labelledby="m3o1-tab">大功能4的小功能1</div>
-						<div class="tab-pane fade" id="m4o2" role="tabpanel" aria-labelledby="m3o2-tab">大功能4的小功能2</div>
-						<div class="tab-pane fade" id="m4o3" role="tabpanel" aria-labelledby="m3o3-tab">大功能4的小功能3</div>
+						<div class="tab-pane fade show active" id="m4o1" role="tabpanel" aria-labelledby="m3o1-tab">开发中......</div>
+						<div class="tab-pane fade" id="m4o2" role="tabpanel" aria-labelledby="m3o2-tab">开发中......</div>
+						<div class="tab-pane fade" id="m4o3" role="tabpanel" aria-labelledby="m3o3-tab">开发中......</div>
 					</div>
 				</div>
 			</div>
