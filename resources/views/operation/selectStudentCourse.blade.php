@@ -33,36 +33,29 @@
 		</style>
 	</head>
 	<body>
-		<div class="col-12 p-2">
-			<form name="insertHomework" method="POST" action="{{ url('/operation/insertStudentCourse') }}" enctype="multipart/form-data">
-				{{ csrf_field() }}
-				<div class="form-group row">
-					<label for="courseid" class="col-sm-2 col-form-label">学生</label>
-					<div class="col-sm-10">
-						<select name="id" class="selectpicker form-control" id="id" data-live-search="true" data-max-options="1">
-							@for ($i = 0; $i < $studentCourse[0]['row_num2']; $i++)
-								<option value="{{ $studentCourse[0]['row2'][$i]['id'] }}">{{ $studentCourse[0]['row2'][$i]['id'] }} : {{ $studentCourse[0]['row2'][$i]['username'] }}</option>
-							@endfor
-						</select>
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="courseid" class="col-sm-2 col-form-label">课程</label>
-					<div class="col-sm-10">
-						<select name="courseid" class="selectpicker form-control" id="courseid" data-live-search="true" data-max-options="1">
-							@for ($i = 0; $i < $studentCourse[1]['row_num1']; $i++)
-								<option value="{{ $studentCourse[1]['row1'][$i]['courseid'] }}">{{ $studentCourse[1]['row1'][$i]['courseid'] }} : {{ $studentCourse[1]['row1'][$i]['coursename'] }}</option>
-							@endfor
-						</select>
-					</div>
-				</div>
-				<div class="form-group row">
-					<div class="col-sm-10">
-						<button name="insertStudentCourse" type="submit" class="btn btn-primary">选课</button>
-					</div>
-				</div>
-			</form>
-		</div>
+		<p>共{{$studentCourse['row_num']}}条记录</p>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">学号</th>
+					<th scope="col">课程号</th>
+					<th scope="col">修改</th>
+					<th scope="col">删除</th>
+				</tr>
+			</thead>
+			<tbody>
+				@for ($i = 0; $i < $studentCourse['row_num']; $i++)
+					<tr>
+						<th scope="row">{{ $i + 1 }}</th>
+						<td>{{ $studentCourse['row'][$i]['studentid'] }}</td>
+						<td>{{ $studentCourse['row'][$i]['courseid'] }}</td>
+						<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-pencil" title="修改" aria-hidden="true"></button></td>
+						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
+					</tr>
+				@endfor
+			</tbody>
+		</table>
 	</body>
 
 	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
@@ -79,5 +72,6 @@
 		$("#logout").click(function() {
 			window.location.href="login";
 		});
+		
 	</script>
 </html>

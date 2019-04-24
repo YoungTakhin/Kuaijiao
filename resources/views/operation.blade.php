@@ -133,7 +133,9 @@
 						<a class="nav-link text-center" id="m4o3-tab" data-toggle="pill" href="#m4o3" role="tab" aria-controls="m4o3" aria-selected="false">小功能3</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
-						<div class="tab-pane fade show active" id="m4o1" role="tabpanel" aria-labelledby="m3o1-tab">开发中......</div>
+						<div class="tab-pane fade show active" id="m4o1" role="tabpanel" aria-labelledby="m3o1-tab">
+							<iframe src="operation/selectStudentCourse" class="col-12" frameborder="0" height="800vh"></iframe>
+						</div>
 						<div class="tab-pane fade" id="m4o2" role="tabpanel" aria-labelledby="m3o2-tab">
 							<iframe src="operation/studentCourse" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
