@@ -17,6 +17,7 @@ class StudentController extends Controller {
         $result = mysqli_query($conn, "select * from student_course join students on students.id = student_course.studentid join courses on courses.courseid = student_course.courseid where studentid like '" . $id . "'");
         $row_num = mysqli_num_rows($result);
         //var_dump($row_num);
+        $row[0] = NULL;
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
             //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
@@ -44,6 +45,7 @@ class StudentController extends Controller {
         //var_dump($sql);
         //var_dump($result);
         $row_num = mysqli_num_rows($result);
+        $row[0] = NULL;
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
             //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
