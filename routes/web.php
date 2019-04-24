@@ -11,8 +11,14 @@
 |
 */
 
+/*
 Route::get('/', function () {
     return view('welcome');
+});
+*/
+
+Route::get('/', function () {
+    return view('login');
 });
 
 Route::get('/hahaha', 'DemoController@haha');
@@ -48,6 +54,8 @@ Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
 Route::get('/teacher/insertHomework', 'TeacherController@insertHomework');
 
 Route::post('/teacher/upHomework', 'TeacherController@upHomework');
+
+Route::get('/teacher/selectHomework', 'TeacherController@selectHomework');
 
 //学生端
 Route::get('/student/selectCourse', 'StudentController@selectCourse');

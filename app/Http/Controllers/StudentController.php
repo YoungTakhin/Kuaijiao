@@ -92,7 +92,7 @@ class StudentController extends Controller {
         }
     }
 
-    public function downHomework(Request $request) {
+    public function downHomework() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
         }
@@ -115,6 +115,7 @@ class StudentController extends Controller {
         //$request->header('Content-Type: application/pdf');
         //$header = array('Content-Type' => 'multipart/form-data');
         //$headers = array('Content-Type: application/pdf');
+        //response()->header('Content-Type', 'text/plain');
         return response()->download(realpath(base_path('storage\app')) . "\\" . $url);
         //Storage::download($url);
     }

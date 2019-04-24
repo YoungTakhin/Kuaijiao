@@ -52,7 +52,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item" href="#">个人中心 <span class="oi oi-person" title="个人中心" aria-hidden="true"></span></a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="login.html">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></a>
+						<a class="dropdown-item" href="login">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></a>
 					</div>
 				</div>
 			</div>

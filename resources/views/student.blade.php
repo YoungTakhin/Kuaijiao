@@ -43,7 +43,7 @@
 			<div class="d-none d-sm-block col-12 col-sm text-right">
 				<div class="btn-group" role="group" aria-label="Person Information">
 					<button type="button" class="btn btn-sm btn-outline-light">个人中心 <span class="oi oi-person" title="个人中心" aria-hidden="true"></span></button>
-					<button type="button" id="logout"  class="btn btn-sm btn-outline-light">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></button>
+					<button type="button" id="logout" class="btn btn-sm btn-outline-light">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></button>
 				</div>
 			</div>
 			<div class="d-block d-sm-none col-2 col-sm text-right">
@@ -52,7 +52,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item" href="#">个人中心 <span class="oi oi-person" title="个人中心" aria-hidden="true"></span></a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="login.html">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></a>
+						<a class="dropdown-item" href="login">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></a>
 					</div>
 				</div>
 			</div>

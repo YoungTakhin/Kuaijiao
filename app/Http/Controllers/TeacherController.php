@@ -103,6 +103,30 @@ class TeacherController extends Controller {
     }
 
     public function selectHomework() {
-
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $sql = "select * from student_homework join course_homework on student_homework.homeworkid = course_homework.homeworkid join teacher_homework on teacher_homework.homeworkid = student_homework.homeworkid join courses on courses.courseid = course_homework.courseid join students on students.id = student_homework.studentid where teacher_homework.teacherid = '" . $id . "'";
+        //var_dump($sql);
+        $result = mysqli_query($conn, $sql);
+        $row_num = mysqli_num_rows($result);
+        //var_dump($row_num);
+        for($i = 0; $i < $row_num; $i++) { 
+            $row[$i] = mysqli_fetch_assoc($result);
+            //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
+        }
+        //var_dump($row);
+        $homework = array('row_num' => $row_num, 'row' => $row);
+        //var_dump($course);
+        mysqli_close($conn);
+        //var_dump($homework);
+        return view('/teacher/selectHomework')->with('homework', $homework);
     }
 }

@@ -52,7 +52,7 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item" href="#">个人中心 <span class="oi oi-person" title="个人中心" aria-hidden="true"></span></a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="login.html">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></a>
+						<a class="dropdown-item" href="login">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></a>
 					</div>
 				</div>
 			</div>
@@ -102,7 +102,9 @@
 						<div class="tab-pane fade show active" id="m2o1" role="tabpanel" aria-labelledby="m2o1-tab">
 							<iframe src="teacher/insertHomework" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
-						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">大功能2的小功能2</div>
+						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">
+							<iframe src="teacher/selectHomework" class="col-12" frameborder="0" height="800vh"></iframe>
+						</div>
 						<div class="tab-pane fade" id="m2o3" role="tabpanel" aria-labelledby="m2o3-tab">大功能2的小功能3</div>
 					</div>
 				</div>
