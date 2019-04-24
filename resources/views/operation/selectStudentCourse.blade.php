@@ -40,8 +40,7 @@
 					<th scope="col">#</th>
 					<th scope="col">学号</th>
 					<th scope="col">课程号</th>
-					<th scope="col">修改</th>
-					<th scope="col">删除</th>
+					<th scope="col">退选</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -50,8 +49,7 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $studentCourse['row'][$i]['studentid'] }}</td>
 						<td>{{ $studentCourse['row'][$i]['courseid'] }}</td>
-						<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-pencil" title="修改" aria-hidden="true"></button></td>
-						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
+						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="退选" aria-hidden="true"></button></td>
 					</tr>
 				@endfor
 			</tbody>
