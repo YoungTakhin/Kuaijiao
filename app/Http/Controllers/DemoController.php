@@ -42,6 +42,7 @@ class DemoController extends Controller {
         mysqli_query($conn, "set names UTF8");
         $result = mysqli_query($conn, "select * from students");
         $row_num = mysqli_num_rows($result);
+        $row[0] = NULL;
         //var_dump($row_num);
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
@@ -61,6 +62,7 @@ class DemoController extends Controller {
         mysqli_query($conn, "set names UTF8");
         $result = mysqli_query($conn, "select * from teachers");
         $row_num = mysqli_num_rows($result);
+        $row[0] = NULL;
         //var_dump($row_num);
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
@@ -80,6 +82,7 @@ class DemoController extends Controller {
         mysqli_query($conn, "set names UTF8");
         $result = mysqli_query($conn, "select * from courses");
         $row_num = mysqli_num_rows($result);
+        $row[0] = NULL;
         //var_dump($row_num);
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
@@ -212,6 +215,7 @@ class DemoController extends Controller {
         $sql = "select * from student_course";
         $result = mysqli_query($conn, $sql);
         $row_num = mysqli_num_rows($result);
+        $row[0] = NULL;
         //var_dump($row_num);
         for($i = 0; $i < $row_num; $i++) { 
             $row[$i] = mysqli_fetch_assoc($result);
