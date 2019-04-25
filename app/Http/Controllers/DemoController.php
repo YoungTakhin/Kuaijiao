@@ -267,7 +267,7 @@ class DemoController extends Controller {
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
         $sql = "insert into teachers values (" . $id . ", '" . $username . "', " . $email . ", '" . $password . "', NULL)";
-        var_dump($sql);
+        //var_dump($sql);
         $result = mysqli_query($conn, $sql);
         if($result) {
             echo "<script>alert('新增成功！');</script>";
@@ -276,6 +276,30 @@ class DemoController extends Controller {
         else {
             echo "<script>alert('新增失败！');</script>";
             return view('/operation/insertTeacher');
+        }
+    }
+
+    public function deleteTeacher() {
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        $teacherid = $_POST['id'];
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $sql = "delete from teachers where id = '" . $teacherid . "'";
+        $result = mysqli_query($conn, $sql);
+        if($result) {
+            echo "<script>alert('删除成功！');</script>";
+            return DemoController::selectTeacher();
+        }
+        else {
+            echo "<script>alert('删除失败！');</script>";
+            return DemoController::selectTeacher();
         }
     }
 }
