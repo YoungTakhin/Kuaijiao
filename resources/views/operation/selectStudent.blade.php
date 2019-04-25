@@ -55,7 +55,37 @@
 						<td>{{ $student['row'][$i]['major'] }}</td>
 						<td>{{ $student['row'][$i]['email'] }}</td>
 						<td><button type="button" class="btn btn-primary btn-sm"><span class="oi oi-pencil" title="修改" aria-hidden="true"></button></td>
-						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
+						<td>
+							<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{ $i + 1 }}"><span class="oi oi-delete" title="删除" aria-hidden="true"></button>
+							<!-- Modal -->
+							<div class="modal fade" id="exampleModal{{ $i + 1 }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<form method="POST" action="{{ url('/operation/deleteStudent') }}">
+											{{ csrf_field() }}
+											<input name="id" type="text" class="custom-file-input" id="id" style="display: none;" value="{{ $student['row'][$i]['id'] }}">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">删除学生信息</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div class="form-group">
+													<div class="custom-file col-sm-12">
+														<span>是否删除学生： {{ $student['row'][$i]['id'] }} {{ $student['row'][$i]['username'] }}？</span>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+												<button name="deleteStudent" type="submit" class="btn btn-primary">删除</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</td>
 					</tr>
 				@endfor
 			</tbody>

@@ -54,6 +54,8 @@ Route::post('/operation/insertStudentCourse', 'DemoController@insertStudentCours
 
 Route::get('/operation/selectStudentCourse', 'DemoController@selectStudentCourse');
 
+Route::post('/operation/deleteStudent', 'DemoController@deleteStudent');
+
 //教师端
 Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
 

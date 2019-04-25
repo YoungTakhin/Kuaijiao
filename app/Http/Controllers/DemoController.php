@@ -221,4 +221,28 @@ class DemoController extends Controller {
         $studentCourse = array('row_num' => $row_num, 'row' => $row);
         return view('/operation/selectStudentCourse')->with('studentCourse', $studentCourse);
     }
+
+    public function deleteStudent() {
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        $studentid = $_POST['id'];
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $sql = "delete from students where id = '" . $studentid . "'";
+        $result = mysqli_query($conn, $sql);
+        if($result) {
+            echo "<script>alert('删除成功！');</script>";
+            return DemoController::selectStudent();
+        }
+        else {
+            echo "<script>alert('删除失败！');</script>";
+            return DemoController::selectStudent();
+        }
+    }
 }
