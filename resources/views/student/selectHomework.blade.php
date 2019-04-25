@@ -40,6 +40,7 @@
 					<th scope="col">#</th>
 					<th scope="col">作业编号</th>
 					<th scope="col">课程名</th>
+					<th scope="col">作业描述</th>
 					<th scope="col">最晚上交时间</th>
 					<th scope="col">下载附件</th>
 					<th scope="col">提交作业</th>
@@ -51,6 +52,7 @@
 						<th scope="row">{{ $i + 1 }}</th>
 						<td>{{ $course['row'][$i]['homeworkid'] }}</td>
 						<td>{{ $course['row'][$i]['coursename'] }}</td>
+						<td>{{ $course['row'][$i]['description'] }}</td>
 						<td>{{ $course['row'][$i]['last_time'] }}</td>
 						@if ($course['row'][$i]['URL'] == '')
 							<td><button type="button" class="btn btn-primary btn-sm" disabled><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button></td>

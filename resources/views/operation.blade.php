@@ -42,7 +42,32 @@
 			</div>
 			<div class="d-none d-sm-block col-12 col-sm text-right">
 				<div class="btn-group" role="group" aria-label="Person Information">
-					<button type="button" class="btn btn-sm btn-outline-light">个人中心 <span class="oi oi-person" title="个人中心" aria-hidden="true"></span></button>
+					<button type="button" class="btn btn-sm btn-outline-light" data-toggle="modal" data-target="#profile">个人中心 <span class="oi oi-person" title="个人中心" aria-hidden="true"></span></button>
+					<div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">个人中心</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body text-left">
+									<div class="custom-file col-sm-12">
+										<label>账号：</label>
+										<span>{{$user['id']}}</span>
+									</div>
+									<div class="custom-file col-sm-12">
+										<label>姓名：</label>
+										<span>{{$user['username']}}</span>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+								</div>
+							</div>
+						</div>
+					</div>
 					<button type="button" id="logout" class="btn btn-sm btn-outline-light">注销 <span class="oi oi-account-logout" title="注销" aria-hidden="true"></span></button>
 				</div>
 			</div>
