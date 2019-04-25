@@ -55,7 +55,11 @@
 						<td>{{ $course['row'][$i]['description'] }}</td>
 						<td>{{ $course['row'][$i]['last_time'] }}</td>
 						@if ($course['row'][$i]['URL'] == '')
-							<td><button type="button" class="btn btn-primary btn-sm" disabled><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button></td>
+							<td>
+								<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="这个作业没有附件">
+									<button type="button" class="btn btn-primary btn-sm" style="pointer-events: none;" disabled><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button>
+								</span>
+							</td>
 						@else
 							<td>
 								<form method="GET" action="{{ url('/student/downHomework') }}" enctype="multipart/form-data">
@@ -117,6 +121,6 @@
 		$("#logout").click(function() {
 			window.location.href="login";
 		});
-		
+		$(function () { $("[data-toggle='tooltip']").tooltip(); });
 	</script>
 </html>
