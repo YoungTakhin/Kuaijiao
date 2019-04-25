@@ -87,7 +87,7 @@
 							<iframe src="operation/selectStudent" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
 						<div class="tab-pane fade" id="m1o2" role="tabpanel" aria-labelledby="m1o2-tab">
-							<iframe src="insertStudent" class="col-12" frameborder="0" height="800vh"></iframe>
+							<iframe src="operation/insertStudent" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
 						<div class="tab-pane fade" id="m1o3" role="tabpanel" aria-labelledby="m1o3-tab">开发中......</div>
 					</div>
@@ -104,7 +104,9 @@
 						<div class="tab-pane fade show active" id="m2o1" role="tabpanel" aria-labelledby="m2o1-tab">
 							<iframe src="operation/selectTeacher" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
-						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">开发中......</div>
+						<div class="tab-pane fade" id="m2o2" role="tabpanel" aria-labelledby="m2o2-tab">
+							<iframe src="operation/insertTeacher" class="col-12" frameborder="0" height="800vh"></iframe>
+						</div>
 						<div class="tab-pane fade" id="m2o3" role="tabpanel" aria-labelledby="m2o3-tab">开发中......</div>
 					</div>
 				</div>

@@ -42,7 +42,7 @@ Route::get('/operation/selectTeacher', 'DemoController@selectTeacher');
 
 Route::get('/operation/selectCourse', 'DemoController@selectCourse');
 
-Route::get('/insertStudent', function () {
+Route::get('operation/insertStudent', function () {
 	return view('/operation/insertStudent');
 });
 
@@ -55,6 +55,12 @@ Route::post('/operation/insertStudentCourse', 'DemoController@insertStudentCours
 Route::get('/operation/selectStudentCourse', 'DemoController@selectStudentCourse');
 
 Route::post('/operation/deleteStudent', 'DemoController@deleteStudent');
+
+Route::get('operation/insertTeacher', function () {
+	return view('/operation/insertTeacher');
+});
+
+Route::post('/operation/insertTeacher', 'DemoController@insertTeacher');
 
 //教师端
 Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');

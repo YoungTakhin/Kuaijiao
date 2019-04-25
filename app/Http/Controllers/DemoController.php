@@ -249,4 +249,33 @@ class DemoController extends Controller {
             return DemoController::selectStudent();
         }
     }
+
+    public function insertTeacher() {
+        if(!isset($_POST['insertTeacher'])) {
+            exit('非法访问!');
+        }
+        $id = NULL;
+        $username = NULL;
+        $password = NULL;
+        $email = 'NULL';
+
+        $id = $_POST['id'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        //包含数据库连接文件
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $sql = "insert into teachers values (" . $id . ", '" . $username . "', " . $email . ", '" . $password . "', NULL)";
+        var_dump($sql);
+        $result = mysqli_query($conn, $sql);
+        if($result) {
+            echo "<script>alert('新增成功！');</script>";
+            return view('/operation/insertTeacher');
+        }
+        else {
+            echo "<script>alert('新增失败！');</script>";
+            return view('/operation/insertTeacher');
+        }
+    }
 }
