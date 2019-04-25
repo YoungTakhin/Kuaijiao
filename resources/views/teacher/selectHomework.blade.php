@@ -61,7 +61,36 @@
 								<button type="submit" class="btn btn-primary btn-sm"><span class="oi oi-cloud-download" title="下载" aria-hidden="true"></button>
 							</form>
 						</td>
-						<td><button type="button" class="btn btn-danger btn-sm"><span class="oi oi-delete" title="删除" aria-hidden="true"></button></td>
+						<td>
+							<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{ $i + 1 }}"><span class="oi oi-delete" title="删除" aria-hidden="true"></button>
+							<div class="modal fade" id="exampleModal{{ $i + 1 }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+										<form method="POST" action="{{ url('/teacher/deleteHomework') }}">
+											{{ csrf_field() }}
+											<input name="homeworkid" type="text" class="custom-file-input" id="homeworkid" style="display: none;" value="{{ $homework['row'][$i]['homeworkid'] }}">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">删除作业</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												<div class="form-group">
+													<div class="custom-file col-sm-12">
+														<span>是否删除 {{ $homework['row'][$i]['username'] }} 的 {{ $homework['row'][$i]['coursename'] }} 作业：{{ $homework['row'][$i]['homeworkid'] }} ？<br>请确保文件已下载！</span>
+													</div>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+												<button name="deleteHomework" type="submit" class="btn btn-primary">删除</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</td>
 					</tr>
 				@endfor
 			</tbody>

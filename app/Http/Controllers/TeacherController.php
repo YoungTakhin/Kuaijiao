@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Storage;
+//use App\Http\Controllers\Storage;
+use Illuminate\Support\Facades\Storage;
 
 class TeacherController extends Controller {
 	
@@ -28,6 +29,7 @@ class TeacherController extends Controller {
         return view('/teacher/selectCourse')->with('course', $course);
     }
 
+    //教师端布置作业
     public function insertHomework() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
@@ -49,6 +51,7 @@ class TeacherController extends Controller {
         return view('/teacher/insertHomework')->with('course', $course);
     }
 
+    //教师端上传作业附件
     public function upHomework(Request $request) {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
@@ -103,6 +106,7 @@ class TeacherController extends Controller {
         }
     }
 
+    //教师端查看学生提交作业
     public function selectHomework() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
@@ -132,6 +136,7 @@ class TeacherController extends Controller {
         return view('/teacher/selectHomework')->with('homework', $homework);
     }
 
+    //教师端下载学生作业
     public function downHomework() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
@@ -143,21 +148,39 @@ class TeacherController extends Controller {
         $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
         mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
         mysqli_query($conn, "set names UTF8");
-        //var_dump($_FILES);
-        //$url = $request->URL->store('');
         $result = mysqli_query($conn, "select * from student_homework where homeworkid like '" . $_GET['homeworkid'] . "'");
-        //var_dump($result);
         $file = mysqli_fetch_assoc($result);
         $url = $file['URL'];
-        //var_dump($file);
-        //var_dump($url);
-        //$request->header('Content-Type: application/pdf');
-        //$header = array('Content-Type' => 'multipart/form-data');
-        //$headers = array('Content-Type'=>'application/octet-stream');
-        //response()->header('Content-Type', 'text/plain');
-        // echo realpath(base_path('storage\app')) . "\\" . $url;
-        // exit();
         $path = realpath(base_path('storage\app')) . "\\" . $url;
         return response()->download($path);
+    }
+
+    //教师端删除学生作业
+    public function deleteHomework() {
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $sql = "select * from student_homework where homeworkid like '" . $_POST['homeworkid'] . "'";
+        $result = mysqli_query($conn, $sql);
+        $file = mysqli_fetch_assoc($result);
+        $url = $file['URL'];
+        Storage::delete($url);
+        $sql = "delete from student_homework where homeworkid like '" . $_POST['homeworkid'] . "'";
+        $result = mysqli_query($conn, $sql);
+        if($result) {
+            echo "<script>alert('删除成功！');</script>";
+            return TeacherController::selectHomework();
+        }
+        else {
+            echo "<script>alert('删除失败！');</script>";
+            return TeacherController::selectHomework();
+        }
     }
 }

@@ -75,6 +75,8 @@ Route::get('/teacher/selectHomework', 'TeacherController@selectHomework');
 
 Route::get('/teacher/downHomework', 'TeacherController@downHomework');
 
+Route::post('/teacher/deleteHomework', 'TeacherController@deleteHomework');
+
 //学生端
 Route::get('/student/selectCourse', 'StudentController@selectCourse');
 
