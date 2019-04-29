@@ -43,7 +43,7 @@ class DemoController extends Controller {
         $result = mysqli_query($conn, "select * from students");
         $row_num = mysqli_num_rows($result);
         $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) { 
+        for($i = 0; $i < $row_num; $i++) {
             $row[$i] = mysqli_fetch_assoc($result);
         }
         $student = array('row_num' => $row_num, 'row' => $row);
@@ -59,7 +59,7 @@ class DemoController extends Controller {
         $result = mysqli_query($conn, "select * from teachers");
         $row_num = mysqli_num_rows($result);
         $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) { 
+        for($i = 0; $i < $row_num; $i++) {
             $row[$i] = mysqli_fetch_assoc($result);
         }
         $teacher = array('row_num' => $row_num, 'row' => $row);
