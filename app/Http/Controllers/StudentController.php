@@ -105,12 +105,12 @@ class StudentController extends Controller {
             session_start();
             $id = $_SESSION['id'];
         }
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $result = mysqli_query($conn, "select * from homeworks where homeworkid like '" . $_GET['homeworkid'] . "'");
-        $file = mysqli_fetch_assoc($result);
-        $url = $file['URL'];
+        $homeworkid = $_GET['homeworkid'];
+        $result = DB::table('homeworks')
+            ->where('homeworkid', 'LIKE', $homeworkid)
+                ->value('URL');
+        $result = $this::objectToArray($result);
+        $url = $result;
         $path = realpath(base_path('storage\app')) . "\\" . $url;
         return response()->download($path);
     }

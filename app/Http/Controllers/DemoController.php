@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DemoController extends Controller {
 	
@@ -15,6 +16,11 @@ class DemoController extends Controller {
     public function login() {
     	$stat = 111;
     	return view('login')->with('stat', $stat);
+    }
+
+    //对象转数组
+    private function objectToArray($object) {
+        return json_decode(json_encode($object), true);
     }
 
     //登录
@@ -37,49 +43,34 @@ class DemoController extends Controller {
 
     //运维端学生查询
     public function selectStudent() {
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $result = mysqli_query($conn, "select * from students");
-        $row_num = mysqli_num_rows($result);
+        $result = DB::table('students')
+            ->get();
+        $row_num = $result->count();
+        $result = $this::objectToArray($result);
         $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) {
-            $row[$i] = mysqli_fetch_assoc($result);
-        }
-        $student = array('row_num' => $row_num, 'row' => $row);
-        mysqli_close($conn);
+        $student = array('row_num' => $row_num, 'row' => $result);
         return view('/operation/selectStudent')->with('student', $student);
     }
 
     //运维端教师查询
     public function selectTeacher() {
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $result = mysqli_query($conn, "select * from teachers");
-        $row_num = mysqli_num_rows($result);
+        $result = DB::table('teachers')
+            ->get();
+        $row_num = $result->count();
+        $result = $this::objectToArray($result);
         $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) {
-            $row[$i] = mysqli_fetch_assoc($result);
-        }
-        $teacher = array('row_num' => $row_num, 'row' => $row);
-        mysqli_close($conn);
+        $teacher = array('row_num' => $row_num, 'row' => $result);
         return view('/operation/selectTeacher')->with('teacher', $teacher);
     }
 
     //运维端课程查询
     public function selectCourse() {
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $result = mysqli_query($conn, "select * from courses");
-        $row_num = mysqli_num_rows($result);
+        $result = DB::table('courses')
+            ->get();
+        $row_num = $result->count();
+        $result = $this::objectToArray($result);
         $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) { 
-            $row[$i] = mysqli_fetch_assoc($result);
-        }
-        $course = array('row_num' => $row_num, 'row' => $row);
-        mysqli_close($conn);
+        $course = array('row_num' => $row_num, 'row' => $result);
         return view('/operation/selectCourse')->with('course', $course);
     }
 
@@ -113,6 +104,7 @@ class DemoController extends Controller {
         }
     }
 
+    //运维端选课查询
     public function studentCourse() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
@@ -142,6 +134,7 @@ class DemoController extends Controller {
         return view('/operation/studentCourse')->with('studentCourse', $studentCourse);
     }
 
+    //运维端学生选课
     public function insertStudentCourse() {
         if(!isset($_POST['insertStudentCourse'])) {
             exit('非法访问!');
@@ -167,6 +160,7 @@ class DemoController extends Controller {
         }
     }
 
+    
     public function selectStudentCourse() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
