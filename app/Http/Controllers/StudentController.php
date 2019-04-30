@@ -4,28 +4,31 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Storage;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller {
 	
+    //对象转数组
+    private function objectToArray($object) {
+        return json_decode(json_encode($object), true);
+    }
+
     //学生端已选课程
     public function selectCourse() {
         session_start();
         $id = $_SESSION['id'];
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $result = mysqli_query($conn, "select * from student_course join students on students.id = student_course.studentid join courses on courses.courseid = student_course.courseid where studentid like '" . $id . "'");
-        $row_num = mysqli_num_rows($result);
-        //var_dump($row_num);
-        $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) { 
-            $row[$i] = mysqli_fetch_assoc($result);
-            //$row[$i] = mysqli_fetch_row($result, MYSQLI_ASSOC);
-        }
-        //var_dump($row);
-        $course = array('row_num' => $row_num, 'row' => $row);
-        //var_dump($course);
-        mysqli_close($conn);
+        $result = DB::table('student_course')
+            ->join('students', function ($join) {
+                $join->on('students.id', '=', 'student_course.studentid');
+            })
+            ->join('courses', function ($join) use ($id) {
+                $join->on('courses.courseid', '=', 'student_course.courseid')
+                    ->where('studentid', 'LIKE', $id);
+            })
+            ->get();
+        $row_num = $result->count();
+        $result = $this::objectToArray($result);
+        $course = array('row_num' => $row_num, 'row' => $result);
         return view('/student/selectCourse')->with('course', $course);
     }
 
@@ -38,18 +41,21 @@ class StudentController extends Controller {
             session_start();
             $id = $_SESSION['id'];
         }
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "select * from course_homework join courses on course_homework.courseid = courses.courseid join student_course on student_course.courseid = courses.courseid join homeworks on homeworks.homeworkid = course_homework.homeworkid where studentid like '" . $id . "'";
-        $result = mysqli_query($conn, $sql);
-        $row_num = mysqli_num_rows($result);
-        $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) { 
-            $row[$i] = mysqli_fetch_assoc($result);
-        }
-        $course = array('row_num' => $row_num, 'row' => $row);
-        mysqli_close($conn);
+        $result = DB::table('course_homework')
+            ->join('courses', function ($join) {
+                $join->on('course_homework.courseid', '=', 'courses.courseid');
+            })
+            ->join('student_course', function ($join) {
+                $join->on('student_course.courseid', '=', 'courses.courseid');
+            })
+            ->join('homeworks', function ($join) use ($id) {
+                $join->on('homeworks.homeworkid', '=', 'course_homework.homeworkid')
+                    ->where('studentid', 'LIKE', $id);
+            })
+            ->get();
+        $row_num = $result->count();
+        $result = $this::objectToArray($result);
+        $course = array('row_num' => $row_num, 'row' => $result);
         return view('/student/selectHomework')->with('course', $course);
     }
 
@@ -107,6 +113,15 @@ class StudentController extends Controller {
         $url = $file['URL'];
         $path = realpath(base_path('storage\app')) . "\\" . $url;
         return response()->download($path);
+    }
+
+    //测试
+    public function test() {
+        //$test = DB::select('select * from students');
+        $test = DB::select('call p_test');
+        //$row = DB::row($test);
+        var_dump($test);
+        //var_dump($row);
     }
 }
 

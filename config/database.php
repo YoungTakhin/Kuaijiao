@@ -36,9 +36,9 @@ return [
         'host'      => 'localhost',
         'database'  => 'kj',
         'username'  => 'root',
-        'password'  => '',
+        'password'  => 'ydx970516',
         'charset'   => 'utf8',
-        'collation' => 'utf8_unicode_ci',
+        'collation' => 'utf8_bin',
         'prefix'    => '',
 
     ],

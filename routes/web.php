@@ -90,7 +90,7 @@ Route::get('/student/downHomework', 'StudentController@downHomework');
 
 //Route::get('/insertStudent/insert', 'DemoController@insertStudent');
 
-
+Route::get('/student/test', 'StudentController@test');
 
 
 //Route::get('/insertTeacher', 'DemoController@insertTeacher');
