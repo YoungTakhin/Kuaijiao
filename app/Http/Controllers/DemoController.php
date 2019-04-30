@@ -113,23 +113,16 @@ class DemoController extends Controller {
             session_start();
             $id = $_SESSION['id'];
         }
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "select * from courses";
-        $result = mysqli_query($conn, $sql);
-        $row_num1 = mysqli_num_rows($result);
-        for($i = 0; $i < $row_num1; $i++) { 
-            $row[$i] = mysqli_fetch_assoc($result);
-        }
-        $course = array('row_num1' => $row_num1, 'row1' => $row);
-        $sql = "select * from students";
-        $result = mysqli_query($conn, $sql);
-        $row_num2 = mysqli_num_rows($result);
-        for($i = 0; $i < $row_num2; $i++) { 
-            $row[$i] = mysqli_fetch_assoc($result);
-        }
-        $student = array('row_num2' => $row_num2, 'row2' => $row);
+        $result1 = DB::table('courses')
+            ->get();
+        $row_num1 = $result1->count();
+        $result1 = $this::objectToArray($result1);
+        $course = array('row_num1' => $row_num1, 'row1' => $result1);
+        $result2 = DB::table('students')
+            ->get();
+        $row_num2 = $result2->count();
+        $result2 = $this::objectToArray($result2);
+        $student = array('row_num2' => $row_num2, 'row2' => $result2);
         $studentCourse = array($student, $course);
         return view('/operation/studentCourse')->with('studentCourse', $studentCourse);
     }
@@ -160,7 +153,7 @@ class DemoController extends Controller {
         }
     }
 
-    
+    //运维端查询学生课程
     public function selectStudentCourse() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
@@ -183,6 +176,7 @@ class DemoController extends Controller {
         return view('/operation/selectStudentCourse')->with('studentCourse', $studentCourse);
     }
 
+    //学生端删除学生
     public function deleteStudent() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
@@ -207,6 +201,7 @@ class DemoController extends Controller {
         }
     }
 
+    //学生端新增教师
     public function insertTeacher() {
         if(!isset($_POST['insertTeacher'])) {
             exit('非法访问!');
@@ -234,6 +229,7 @@ class DemoController extends Controller {
         }
     }
 
+    //学生端删除教师
     public function deleteTeacher() {
         if(isset($_SESSION)) {
             $id = $_SESSION['id'];
