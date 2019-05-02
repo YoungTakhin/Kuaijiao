@@ -162,17 +162,11 @@ class DemoController extends Controller {
             session_start();
             $id = $_SESSION['id'];
         }
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "select * from student_course";
-        $result = mysqli_query($conn, $sql);
-        $row_num = mysqli_num_rows($result);
-        $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) { 
-            $row[$i] = mysqli_fetch_assoc($result);
-        }
-        $studentCourse = array('row_num' => $row_num, 'row' => $row);
+        $result = DB::table('student_course')
+            ->get();
+        $row_num = $result->count();
+        $result = $this::objectToArray($result);
+        $studentCourse = array('row_num' => $row_num, 'row' => $result);
         return view('/operation/selectStudentCourse')->with('studentCourse', $studentCourse);
     }
 
@@ -251,6 +245,54 @@ class DemoController extends Controller {
         else {
             echo "<script>alert('删除失败！');</script>";
             return DemoController::selectTeacher();
+        }
+    }
+
+    public function teacherCourse() {
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
+        $result1 = DB::table('courses')
+            ->get();
+        $row_num1 = $result1->count();
+        $result1 = $this::objectToArray($result1);
+        $course = array('row_num1' => $row_num1, 'row1' => $result1);
+        $result2 = DB::table('teachers')
+            ->get();
+        $row_num2 = $result2->count();
+        $result2 = $this::objectToArray($result2);
+        $teacher = array('row_num2' => $row_num2, 'row2' => $result2);
+        $teacherCourse = array($teacher, $course);
+        return view('/operation/teacherCourse')->with('teacherCourse', $teacherCourse);
+    }
+
+    //运维端教师选课
+    public function insertTeacherCourse() {
+        if(!isset($_POST['insertTeacherCourse'])) {
+            exit('非法访问!');
+        }
+        $id = NULL;
+        $courseid = NULL;
+
+        $id = $_POST['id'];
+        $courseid = $_POST['courseid'];
+
+        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
+        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
+        mysqli_query($conn, "set names UTF8");
+        $sql = "insert into teacher_course values ('" . $id . "', '" . $courseid . "')";
+        $result = mysqli_query($conn, $sql);
+        if($result) {
+            echo "<script>alert('授课成功！');</script>";
+            return DemoController::teacherCourse();
+        }
+        else {
+            echo "<script>alert('授课失败！');</script>";
+            return DemoController::teacherCourse();
         }
     }
 }

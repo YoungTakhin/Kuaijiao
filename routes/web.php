@@ -64,6 +64,14 @@ Route::post('/operation/insertTeacher', 'DemoController@insertTeacher');
 
 Route::post('/operation/deleteTeacher', 'DemoController@deleteTeacher');
 
+Route::get('operation/teacherCourse', function () {
+	return view('/operation/teacherCourse');
+});
+
+Route::get('/operation/teacherCourse', 'DemoController@teacherCourse');
+
+Route::post('/operation/insertTeacherCourse', 'DemoController@insertTeacherCourse');
+
 //教师端
 Route::get('/teacher/selectCourse', 'TeacherController@selectCourse');
 

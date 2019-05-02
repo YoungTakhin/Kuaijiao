@@ -157,7 +157,7 @@
 					<div class="col-12 col-sm-2 nav flex-column nav-pills p-0" id="mode4-tab" role="tablist" aria-orientation="vertical">
 						<a class="nav-link active text-center" id="m4o1-tab" data-toggle="pill" href="#m4o1" role="tab" aria-controls="m4o1" aria-selected="true">选课查询</a>
 						<a class="nav-link text-center" id="m4o2-tab" data-toggle="pill" href="#m4o2" role="tab" aria-controls="m4o2" aria-selected="false">学生选课</a>
-						<a class="nav-link text-center" id="m4o3-tab" data-toggle="pill" href="#m4o3" role="tab" aria-controls="m4o3" aria-selected="false">小功能3</a>
+						<a class="nav-link text-center" id="m4o3-tab" data-toggle="pill" href="#m4o3" role="tab" aria-controls="m4o3" aria-selected="false">教师授课</a>
 					</div>
 					<div class="col-12 col-sm-10 tab-content" id="v-pills-tabContent">
 						<div class="tab-pane fade show active" id="m4o1" role="tabpanel" aria-labelledby="m3o1-tab">
@@ -166,7 +166,9 @@
 						<div class="tab-pane fade" id="m4o2" role="tabpanel" aria-labelledby="m3o2-tab">
 							<iframe src="operation/studentCourse" class="col-12" frameborder="0" height="800vh"></iframe>
 						</div>
-						<div class="tab-pane fade" id="m4o3" role="tabpanel" aria-labelledby="m3o3-tab">开发中......</div>
+						<div class="tab-pane fade" id="m4o3" role="tabpanel" aria-labelledby="m3o3-tab">
+							<iframe src="operation/teacherCourse" class="col-12" frameborder="0" height="800vh"></iframe>
+						</div>
 					</div>
 				</div>
 			</div>
