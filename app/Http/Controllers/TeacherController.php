@@ -17,7 +17,7 @@ class TeacherController extends Controller {
         $result = mysqli_query($conn, "select * from teacher_course join teachers on teachers.id = teacher_course.teacherid join courses on courses.courseid = teacher_course.courseid where teacherid like '" . $_SESSION['id'] . "'");
         $row_num = mysqli_num_rows($result);
         $row[0] = NULL;
-        for($i = 0; $i < $row_num; $i++) { 
+        for($i = 0; $i < $row_num; $i++) {
             $row[$i] = mysqli_fetch_assoc($result);
         }
         $course = array('row_num' => $row_num, 'row' => $row);
