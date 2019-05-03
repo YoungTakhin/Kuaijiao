@@ -89,17 +89,15 @@ class DemoController extends Controller {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $major = $_POST['major'];
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "insert into students values (" . $id . ", '" . $username . "', '" . $major . "', " . $email . ", '" . $password . "', NULL)";
-        $result = mysqli_query($conn, $sql);
-        if($result) {
+
+        try {
+            $result = DB::insert('call PUI0103_Stu_I(?, ?, ?, ?, ?)', [$id, $username, $major, $email, $password]);
             echo "<script>alert('新增成功！');</script>";
-            return view('/operation/insertStudent');
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('新增失败！');</script>";
+        }
+        finally{
             return view('/operation/insertStudent');
         }
     }
@@ -132,23 +130,26 @@ class DemoController extends Controller {
         if(!isset($_POST['insertStudentCourse'])) {
             exit('非法访问!');
         }
+        if(isset($_SESSION)) {
+            $id = $_SESSION['id'];
+        }
+        else {
+            session_start();
+            $id = $_SESSION['id'];
+        }
         $id = NULL;
         $courseid = NULL;
 
         $id = $_POST['id'];
         $courseid = $_POST['courseid'];
-
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "insert into student_course values ('" . $id . "', '" . $courseid . "')";
-        $result = mysqli_query($conn, $sql);
-        if($result) {
+        try {
+            $result = DB::insert('call PUI0301_OP_StuCour_I(?, ?)', [$id, $courseid]);
             echo "<script>alert('选课成功！');</script>";
-            return DemoController::studentCourse();
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('选课失败！');</script>";
+        }
+        finally{
             return DemoController::studentCourse();
         }
     }
@@ -208,17 +209,14 @@ class DemoController extends Controller {
         $id = $_POST['id'];
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "insert into teachers values (" . $id . ", '" . $username . "', " . $email . ", '" . $password . "', NULL)";
-        $result = mysqli_query($conn, $sql);
-        if($result) {
+        try {
+            $result = DB::insert('call PUI0204_Tec_I(?, ?, ?, ?)', [$id, $username, $email, $password]);
             echo "<script>alert('新增成功！');</script>";
-            return view('/operation/insertTeacher');
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('新增失败！');</script>";
+        }
+        finally {
             return view('/operation/insertTeacher');
         }
     }
