@@ -68,11 +68,15 @@ class TeacherController extends Controller {
         }
         $courseid = $_POST['courseid'];
         $description = $_POST['description'];
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $result = mysqli_query($conn, "select * from teacher_course join teachers on teachers.id = teacher_course.teacherid join courses on courses.courseid = teacher_course.courseid where teacherid like '" . $_SESSION['id'] . "'");
-        $row_num = mysqli_num_rows($result);
+        $result = DB::table('teacher_course')
+            ->join('teachers', function ($join) {
+                $join->on('teachers.id', 'LIKE', 'teacher_course.teacherid');
+            })
+            ->join('courses', function ($join) use ($id) {
+                $join->on('courses.courseid', 'LIKE', 'teacher_course.courseid')
+                    ->where('teacherid', 'LIKE', $id);
+            });
+        $row_num = $result->count();
         $homeworkid = date('Ymdhis');
         if ($request->isMethod('POST')) {
             if($_FILES['URL']['error'] == 0) {
@@ -82,24 +86,17 @@ class TeacherController extends Controller {
                 $url = NULL;
             }
         }
-        $sql = "insert into homeworks values ('" . $homeworkid . "', NULL, '" . $url . "', '" . $description . "')";
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
-            $sql = "insert into teacher_homework values ('" . $homeworkid . "', '" . $id . "')";
-            $result = mysqli_query($conn, $sql);
-        }
-        if ($result) {
-            $sql = "insert into course_homework values ('" . $homeworkid . "', '" . $courseid . "')";
-            $result = mysqli_query($conn, $sql);
-        }
-        $row = NULL;
-        $course = array('row_num' => $row_num, 'row' => $row);
-        if($result) {
+        try {
+            $result = DB::insert('call PUI0201_Hw_TecHw_CourHw_I(?, ?, ?, ?, ?)', [$homeworkid, $id, $url, $description, $courseid]);
             echo "<script>alert('布置成功！');</script>";
-            return TeacherController::insertHomework();
+            $row_num = $result->count();
+            $result = $this::objectToArray($result);
+            $course = array('row_num' => $row_num, 'row' => $result);
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('布置失败！');</script>";
+        }
+        finally {
             return TeacherController::insertHomework();
         }
     }
