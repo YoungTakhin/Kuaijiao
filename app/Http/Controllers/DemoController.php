@@ -14,8 +14,7 @@ class DemoController extends Controller {
     }
 
     public function login() {
-    	$stat = 111;
-    	return view('login')->with('stat', $stat);
+    	return view('login');
     }
 
     //对象转数组
