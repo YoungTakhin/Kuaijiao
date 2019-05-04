@@ -91,7 +91,7 @@ class DemoController extends Controller {
         $major = $_POST['major'];
 
         try {
-            $result = DB::insert('call PUI0103_Stu_I(?, ?, ?, ?, ?)', [$id, $username, $major, $email, $password]);
+            $result = DB::insert('call PUI0101_Stu_I(?, ?, ?, ?, ?)', [$id, $username, $major, $email, $password]);
             echo "<script>alert('新增成功！');</script>";
         }
         catch(\Exception $e) {
@@ -143,7 +143,7 @@ class DemoController extends Controller {
         $id = $_POST['id'];
         $courseid = $_POST['courseid'];
         try {
-            $result = DB::insert('call PUI0301_OP_StuCour_I(?, ?)', [$id, $courseid]);
+            $result = DB::insert('call PUI0105_StuCour_I(?, ?)', [$id, $courseid]);
             echo "<script>alert('选课成功！');</script>";
         }
         catch(\Exception $e) {
@@ -210,7 +210,7 @@ class DemoController extends Controller {
         $username = $_POST['username'];
         $password = $_POST['password'];
         try {
-            $result = DB::insert('call PUI0204_Tec_I(?, ?, ?, ?)', [$id, $username, $email, $password]);
+            $result = DB::insert('call PUI0102_Tec_I(?, ?, ?, ?)', [$id, $username, $email, $password]);
             echo "<script>alert('新增成功！');</script>";
         }
         catch(\Exception $e) {

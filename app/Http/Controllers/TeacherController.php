@@ -162,22 +162,20 @@ class TeacherController extends Controller {
             session_start();
             $id = $_SESSION['id'];
         }
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "select * from student_homework where homeworkid like '" . $_POST['homeworkid'] . "'";
-        $result = mysqli_query($conn, $sql);
-        $file = mysqli_fetch_assoc($result);
-        $url = $file['URL'];
+        $homeworkid = $_POST['homeworkid'];
+        $studentid = $_POST['studentid'];
+        $url = DB::table('student_homework')
+            ->where('homeworkid', 'LIKE', $homeworkid)
+                ->value('URL');
         Storage::delete($url);
-        $sql = "delete from student_homework where homeworkid like '" . $_POST['homeworkid'] . "'";
-        $result = mysqli_query($conn, $sql);
-        if($result) {
+        try {
+            $result = DB::delete('call PUI0202_StuHw_D(?, ?)', [$homeworkid, $studentid]);
             echo "<script>alert('删除成功！');</script>";
-            return TeacherController::selectHomework();
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('删除失败！');</script>";
+        }
+        finally {
             return TeacherController::selectHomework();
         }
     }

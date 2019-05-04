@@ -69,8 +69,9 @@
 										<form method="POST" action="{{ url('/teacher/deleteHomework') }}">
 											{{ csrf_field() }}
 											<input name="homeworkid" type="text" class="custom-file-input" id="homeworkid" style="display: none;" value="{{ $homework['row'][$i]['homeworkid'] }}">
+											<input name="studentid" type="text" class="custom-file-input" id="studentid" style="display: none;" value="{{ $homework['row'][$i]['studentid'] }}">
 											<div class="modal-header">
-												<h5 class="modal-title" id="exampleModalLabel">删除作业</h5>
+												<h5 class="modal-title" id="exampleModalLabel ">删除作业</h5>
 												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 													<span aria-hidden="true">&times;</span>
 												</button>

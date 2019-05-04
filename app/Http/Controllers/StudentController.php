@@ -73,24 +73,16 @@ class StudentController extends Controller {
             return StudentController::selectHomework();
         }
         else {
-            $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-            mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-            mysqli_query($conn, "set names UTF8");
+            $homeworkid = $_POST['homeworkid'];
             $url = $request->URL->store('');
-            $result = mysqli_query($conn, "select * from student_homework where homeworkid like '" . $_POST['homeworkid'] . "' and studentid like '" . $id . "'");
-            $row_num = mysqli_num_rows($result);
-            if($row_num == 1) {
-                $deleteSql = "delete from student_homework where homeworkid like '" . $_POST['homeworkid'] . "' and studentid like '" . $id . "'";
-                mysqli_query($conn, $deleteSql);
-            }
-            $sql = "insert into student_homework values ('" . $_POST['homeworkid'] . "', '" . $id . "', '" . $url . "', NULL)";
-            $result = mysqli_query($conn, $sql);
-            if($result) {
+            try {
+                $result = DB::insert('call PUI0301_StuHw_I(?, ?, ?)', [$homeworkid, $id, $url]);
                 echo "<script>alert('提交成功！');</script>";
-                return StudentController::selectHomework();
             }
-            else {
+            catch(\Exception $e) {
                 echo "<script>alert('提交失败！');</script>";
+            }
+            finally {
                 return StudentController::selectHomework();
             }
         }
