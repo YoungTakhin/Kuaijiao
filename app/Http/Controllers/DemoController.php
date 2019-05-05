@@ -180,17 +180,14 @@ class DemoController extends Controller {
             $id = $_SESSION['id'];
         }
         $studentid = $_POST['id'];
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "delete from students where id = '" . $studentid . "'";
-        $result = mysqli_query($conn, $sql);
-        if($result) {
+        try {
+            $result = DB::delete('call PUI0103_Stu_D(?)', [$studentid]);
             echo "<script>alert('删除成功！');</script>";
-            return DemoController::selectStudent();
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('删除失败！');</script>";
+        }
+        finally {
             return DemoController::selectStudent();
         }
     }
@@ -230,17 +227,14 @@ class DemoController extends Controller {
             $id = $_SESSION['id'];
         }
         $teacherid = $_POST['id'];
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "delete from teachers where id = '" . $teacherid . "'";
-        $result = mysqli_query($conn, $sql);
-        if($result) {
+        try {
+            $result = DB::insert('call PUI0104_Tec_D(?)', [$teacherid]);
             echo "<script>alert('删除成功！');</script>";
-            return DemoController::selectTeacher();
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('删除失败！');</script>";
+        }
+        finally {
             return DemoController::selectTeacher();
         }
     }
@@ -274,21 +268,16 @@ class DemoController extends Controller {
         }
         $id = NULL;
         $courseid = NULL;
-
         $id = $_POST['id'];
         $courseid = $_POST['courseid'];
-
-        $conn = mysqli_connect("localhost", "root", "ydx970516", "kj");
-        mysqli_select_db($conn, "kj") or die("数据库访问错误" . mysql_error());
-        mysqli_query($conn, "set names UTF8");
-        $sql = "insert into teacher_course values ('" . $id . "', '" . $courseid . "')";
-        $result = mysqli_query($conn, $sql);
-        if($result) {
+        try {
+            $result = DB::insert('call PUI0106_TecCour_I(?, ?)', [$id, $courseid]);
             echo "<script>alert('授课成功！');</script>";
-            return DemoController::teacherCourse();
         }
-        else {
+        catch(\Exception $e) {
             echo "<script>alert('授课失败！');</script>";
+        }
+        finally {
             return DemoController::teacherCourse();
         }
     }
